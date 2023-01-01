@@ -3096,6 +3096,11 @@ ul {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+.primary_text {
+  color: #ff3368;
+  margin: 15px;
+
+}
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_subscribe_area.scss */
 .subscribe_area h2 {

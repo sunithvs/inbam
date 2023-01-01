@@ -50,7 +50,27 @@
                                     </button>
                                     <a class="lost_pass" href="#">forget password?</a>
                                 </div>
+                                {#                                login with google#}
+                                <div class="col-md-12 form-group">
+
+
+                                </div>
                             </form>
+                            {#                            or text #}
+                            <div class="col-md-12 form-group d-flex align-items-center flex-column">
+                                <div class="primary_text ">
+                                    OR
+                                </div>
+                                <div>
+                                    <form method="post" action="{% provider_login_url 'google' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="login-with-google-btn">
+                                            Sign in with Google
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
