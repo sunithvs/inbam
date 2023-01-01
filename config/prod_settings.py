@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     "rest_framework",
     'drf_yasg',  # swagger ui
     'allauth',
-    'allauth.account',
+    # 'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',

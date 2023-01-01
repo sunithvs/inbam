@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from allauth.account.views import LogoutView
+
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
@@ -47,8 +47,6 @@ urlpatterns = [
             name='schema-json'),
     path(r'swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     # path('', TemplateView.as_view(template_name="login/index.html")),
-    path('accounts/', include('allauth.urls')),
-    path('logout', LogoutView.as_view()),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
