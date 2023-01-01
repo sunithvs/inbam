@@ -1,94 +1,71 @@
-{% extends "account/new_base.html" %}
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load socialaccount %}
+{% load static %}
+{#{% load account %}#}
 {% block title %}
-    Register
+    <title>login</title>
 {% endblock %}
-{% block form %}
-    <div class="col-md-4 from-container ">
-
-
-        <form action="/signup/?{{ request.META.QUERY_STRING }}" method="POST">
-
-
-            <figure class="text-center "><h2 style="color: #000000 ;" class="fw-bold">Register </h2>
-                <p> Please enter you details to register </p>
-            </figure>
-
-            <div class="input-fields ">
-                {% csrf_token %}
-                {% if pswderr %}
-                    <div class=" text-center text-danger flex-column  align-items-center" role="alert">
-                        <i class="fa fa-exclamation-circle"></i> {{ pswderr }}
-                    </div>
-                {% endif %}
-
-                <div class=" mb-3 d-flex flex-column  align-items-center ">
-                    <div class="mb-2 d-flex flex-column " style="width:350px;margin-right: auto;margin-left: auto ">
-                        <label class="form-label input-label " for="username">Your fullname* </label>
-                        <input name="username" type="text" id="username" placeholder="Enter user name"
-                               class="form-control  form-control-lg text-input mb-2" required style=" height:70px"/>
-                        <label class="form-label input-label " for="email">Email address* </label>
-                        <input name="email" type="email" id="email" placeholder="Enter Email address"
-                               class="form-control  form-control-lg text-input mb-2" required style=" height:70px"/>
-                        <label class="form-label input-label " for="password">Create password*</label>
-                        <div class="password-container">
-                            <input type="password" name="password" id="password" placeholder="Enter password"
-                                   class="form-control form-control-lg text-input mb-2 password-input"
-                                   style=" height:70px " required/>
-                            <span onclick="show_password('password','password-visibility')" class="visibility"
-                                  id="password-visibility">show</span>
-
-                        </div>
-                        <label class="form-label input-label " for="password-retype">Confirm password*</label>
-                        <div class="password-container">
-                            <input type="password" name="password retype" id="password-retype"
-                                   placeholder="Enter password"
-                                   class="form-control form-control-lg text-input mb-2 password-input"
-                                   style=" height:70px " required>
-                            <span onclick="show_password('password-retype','password2-visibility')" class="visibility"
-                                  id="password2-visibility">show</span>
-
-                        </div>
-                        <input type="text" id="form6" class="form-control hidden" placeholder="Invite Token"
-                               name="invite"
-                               value="{{ invite }}">
-                        <label class="form-label hidden" for="form6">Invite Token</label>
-                        <div class="form-check">
-                            <input
-                                    class="form-check-input form-checkbox "
-                                    type="checkbox"
-                                    id="flexCheckDefault"
-                                    required
-                            />
-                            <label class="form-check-label" for="flexCheckDefault">
-                                I agree to terms & conditions
-                            </label>
+{% block body %}
+    <!--================login_part Area =================-->
+    <section class="login_part padding_top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <h2>{% if form.errors %} Errors {% else %}New to our Shop?{% endif %}</h2>
+                            <p style="color: white">
+                                {{ form.non_field_errors }}
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-lg btn-block submit-btn">Register Account</button>
-                </div>
-
-                <div class="divider d-flex justify-content-center align-items-center my-2">
-                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                </div>
-                <div class="d-flex justify-content-center mb-1">
-                    <a class="btn btn-lg btn-block text-input"
-                       href="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/userinfo.profile%20https%3A//www.googleapis.com/auth/userinfo.email&include_granted_scopes=true&response_type=code&state={{ request.META.QUERY_STRING|urlencode }}&redirect_uri={{ redirect_uri }}&client_id={{ GOOGLE_CLIENT_ID }}"
-                       role="button">
-                        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-                        login with Google
-                    </a>
-
-                </div>
-                <div class="already-container">
-                    <p class="already"> Already have an account? <a class="signin-link"
-                                                                    href="/accounts/login?{{ request.META.QUERY_STRING }}">Sign
-                        in</a>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form w-100">
+                        <div class="login_part_form_iner">
+                            <h3>Welcome Back ! <br>
+                                Please Sign in now</h3>
+                            <form class="row contact_form" action="/account/login/?{{ request.META.QUERY_STRING }}"
+                                  method="post">
+                                {% csrf_token %}
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="name"></label><input type="text" class="form-control" id="name"
+                                                                     name="username" value=""
+                                                                     placeholder="Username">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="email"></label><input type="email" class="form-control" id="email"
+                                                                      name="email" value=""
+                                                                      placeholder="Email">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="password"></label><input type="password" class="form-control"
+                                                                         id="password" name="password" value=""
+                                                                         placeholder="Password">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                           placeholder="Password (Again)">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account d-flex align-items-center">
+                                        <input type="checkbox" id="f-option" name="remember">
+                                        <label for="f-option">Remember me</label>
+                                    </div>
+                                    <button type="submit" value="submit" class="btn_3">
+                                        Sign Up
+                                    </button>
+                                    <a class="lost_pass" href="">forget password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </section>
+    <!--================login_part end =================-->
 
 {% endblock %}
+
