@@ -21,4 +21,5 @@ from home import views
 urlpatterns = [
     # regiser index view
     path('', views.IndexView.as_view(), name='index'),
+    path('checkout', views.IndexView.as_view(), name='index'),
 ]

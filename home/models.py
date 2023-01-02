@@ -1,4 +1,7 @@
+from _decimal import Decimal
+
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -22,11 +25,11 @@ class Order(models.Model):
     # the name of the order
     name = models.CharField(max_length=200)
     # the description of the order
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     # the date of the order
     date = models.DateTimeField(auto_now_add=True)
     # the price of the order
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.00'))])
     # the status of the order
     status = models.CharField(max_length=200, choices=(
         ('pending', 'Pending'),
@@ -48,4 +51,3 @@ class Order(models.Model):
     def clean(self):
         if not self.file.name.endswith(tuple(self.valid_extensions)):
             raise ValidationError(u'File not supported!')
-
