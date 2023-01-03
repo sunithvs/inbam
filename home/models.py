@@ -42,6 +42,11 @@ class Order(models.Model):
     delivery_date = models.DateTimeField(auto_now_add=True)
     delivery_address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True,
                                          related_name='order_delivery_address')
+    type = models.CharField(max_length=200, choices=(
+        ('metal', 'Metal'),
+        ("ornament", "Ornament"),
+        ('plastic', 'Plastic'),
+    ), default='plastic')
 
     # the string representation of the order
     def __str__(self):
