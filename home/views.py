@@ -15,7 +15,7 @@ class IndexView(TemplateView):
         return self.render_to_response(self.get_context_data())
 
 
-#  order view using Order form
+
 # class OrderViewSet(viewsets.ViewSet):
 #
 #     @staticmethod
@@ -30,6 +30,6 @@ class IndexView(TemplateView):
 #     def list(request):
 #         form = OrderForm()
 #         return Response({'form': form})
-#
-#
-#
+
+
+

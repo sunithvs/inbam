@@ -10,7 +10,10 @@ if settings == "prod":
     DEBUG = False
     from .common_settings import *
 
-    ALLOWED_HOSTS = ["tr3dprint.com", "localhost", ""]
+    ALLOWED_HOSTS = ["dev.inbam.tech", ""]
+    cors_allowed_origins = ["https://dev.inbam.tech", "http://dev.inbam.tech"]
+    CSRF_TRUSTED_ORIGINS = ["dev.inbam.tech", "http://dev.inbam.tech", "https://dev.inbam.tech"]
+
     STATIC_ROOT = "/var/www/html/static/"
     MEDIA_ROOT = '/var/www/html/media'
 

@@ -47,6 +47,10 @@ class Order(models.Model):
         ("ornament", "Ornament"),
         ('plastic', 'Plastic'),
     ), default='plastic')
+    payment_status = models.CharField(max_length=200, choices=(
+        ('pending', 'Pending'),
+        ('paid', 'Paid'),
+    ), default='pending')
 
     # the string representation of the order
     def __str__(self):
