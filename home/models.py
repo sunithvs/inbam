@@ -19,7 +19,7 @@ class Address(models.Model):
 
 # a model for an order of a 3d printing service oline
 class Order(models.Model):
-    valid_extensions = ['stl', 'STL', 'Stl', "obj"]
+    valid_extensions = ['stl', 'STL', 'Stl', 'sTL', 'stL', 'sTl', 'StL', 'STl']
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     # the name of the order
