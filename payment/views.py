@@ -67,16 +67,15 @@ def payment_handler(request):
 
                     # render success page on successful capture of payment
                     return render(request, 'paymentsuccess.html')
-                except:
-
+                except Exception as e:
+                    print(e)
                     # if there is an error while capturing payment.
                     return render(request, 'paymentfail.html')
             else:
-
                 # if signature verification fails.
                 return render(request, 'paymentfail.html')
-        except:
-
+        except Exception as e:
+            print(e)
             # if we don't find the required parameters in POST data
             return HttpResponseBadRequest()
     else:
