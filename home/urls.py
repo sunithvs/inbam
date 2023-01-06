@@ -19,7 +19,7 @@ from rest_framework import routers
 from home import views
 
 urlpatterns = [
-    # regiser index view
+    # register index view
     path('', views.IndexView.as_view(), name='index'),
     path('checkout', views.IndexView.as_view(), name='index'),
 ]

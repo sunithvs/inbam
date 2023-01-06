@@ -26,4 +26,3 @@ class OrderForm(forms.ModelForm):
             if not file.name.endswith(tuple(Order.valid_extensions)):
                 raise forms.ValidationError(u'File not supported!')
         return cleaned_data
-
