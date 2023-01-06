@@ -3,7 +3,6 @@ import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
-from django.views.generic import TemplateView
 from home.forms import OrderForm
 from django.contrib.auth.decorators import login_required
 
