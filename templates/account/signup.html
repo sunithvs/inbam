@@ -1,0 +1,84 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load socialaccount %}
+{% load static %}
+{#{% load account %}#}
+{% block title %}
+    <title>login</title>
+{% endblock %}
+{% block body %}
+    <!--================login_part Area =================-->
+    <section class="login_part padding_top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <h2>{% if form.errors %} Errors {% else %}New to our Shop?{% endif %}</h2>
+                            <p style="color: white">
+                                {{ form.non_field_errors }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form w-100">
+                        <div class="login_part_form_iner">
+                            <h3>Welcome Back ! <br>
+                                Please Sign in now</h3>
+                            <form class="row contact_form" action="/account/login/?{{ request.META.QUERY_STRING }}"
+                                  method="post">
+                                {% csrf_token %}
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="name"></label><input type="text" class="form-control" id="name"
+                                                                     name="username" value=""
+                                                                     placeholder="Username">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="email"></label><input type="email" class="form-control" id="email"
+                                                                      name="email" value=""
+                                                                      placeholder="Email">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <label for="password"></label><input type="password" class="form-control"
+                                                                         id="password" name="password" value=""
+                                                                         placeholder="Password">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                           placeholder="Password (Again)">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account d-flex align-items-center">
+                                        <input type="checkbox" id="f-option" name="remember">
+                                        <label for="f-option">Remember me</label>
+                                    </div>
+                                    <button type="submit" value="submit" class="btn_3">
+                                        Sign Up
+                                    </button>
+                                    <a class="lost_pass" href="">forget password?</a>
+                                </div>
+                            </form>
+                            <div class="col-md-12 form-group d-flex align-items-center flex-column">
+                                <div class="primary_text ">
+                                    OR
+                                </div>
+                                <div>
+                                    <form method="post" action="{% provider_login_url 'google' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="login-with-google-btn">
+                                            Sign in with Google
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================login_part end =================-->
+
+{% endblock %}
+
