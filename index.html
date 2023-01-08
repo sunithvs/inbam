@@ -1,215 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Inbam</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous"
     />
     <link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
-		integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header
-      style="left: 0; right: 0; z-index: 100;"
-      class="header px-5 container-pall position-fixed"
-    >
-      <nav class="nav flex flex-jc-sp flex-ai-c">
-        <a class="header__logo" href="/">Inbam</a>
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+          integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+<!-- Header -->
+<header
+        style="left: 0; right: 0; z-index: 100;"
+        class="header px-5 container-pall position-fixed"
+>
+    <nav class="nav flex flex-jc-sp flex-ai-c">
+        <a class="header__logo" href="/"><img
+                src="https://raw.githubusercontent.com/sunithvs/inbum/master/static/img/logo.png" alt="logo"> </a>
 
         <div
-          class="toggle-menu flex hide-for-desktop"
-          tabindex="0"
-          role="button"
+                class="toggle-menu flex hide-for-desktop"
+                tabindex="0"
+                role="button"
         >
-          <div class="toggle-menu__dots">
-            <span class="toggle-menu__dot"></span>
-            <span class="toggle-menu__dot"></span>
-            <span class="toggle-menu__dot"></span>
-            <span class="toggle-menu__dot"></span>
-          </div>
+            <div class="toggle-menu__dots">
+                <span class="toggle-menu__dot"></span>
+                <span class="toggle-menu__dot"></span>
+                <span class="toggle-menu__dot"></span>
+                <span class="toggle-menu__dot"></span>
+            </div>
 
-          <span class="toggle-menu__text">Menu</span>
+            <span class="toggle-menu__text">Menu</span>
         </div>
 
         <ul class="menu flex">
-          <li class="menu__item">
-            <a href="#home" class="menu__link">Home</a>
-          </li>
-          <li class="menu__item">
-            <a href="#about" class="menu__link">About</a>
-          </li>
-          <li class="menu__item">
-            <a href="#services" class="menu__link">Services</a>
-          </li>
-          <li class="menu__item">
-            <a href="#why-us" class="menu__link">Why Inbam</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link menu__link--primary">Sign In</a>
-          </li>
+            <li class="menu__item">
+                <a href="#home" class="menu__link">Home</a>
+            </li>
+            <li class="menu__item">
+                <a href="#about" class="menu__link">About</a>
+            </li>
+            <li class="menu__item">
+                <a href="#services" class="menu__link">Services</a>
+            </li>
+            <li class="menu__item">
+                <a href="#why-us" class="menu__link">Why Inbam</a>
+            </li>
+            <li class="menu__item">
+                <a href="#" class="menu__link menu__link--primary">Sign In</a>
+            </li>
         </ul>
-      </nav>
-    </header>
-    <!-- End Header -->
+    </nav>
+</header>
+<!-- End Header -->
 
-    <!-- Hero Section -->
-    <section id="home" class="hero container container-pall">
-      <div class="hero__image">
+<!-- Hero Section -->
+<section id="home" class="hero container container-pall">
+    <div class="hero__image">
         <img
-          src="./hero.svg"
-          alt="Hero Image"
-          class="hero__illustration-image"
-          draggable="false"
+                src="./hero.svg"
+                alt="Hero Image"
+                class="hero__illustration-image"
+                draggable="false"
         />
-      </div>
+    </div>
 
-      <div class="hero__text">
+    <div class="hero__text">
         <h1 class="hero__heading">Simple time tracking. Powerful reporting.</h1>
         <p class="hero__description">
-          Turn your team on to productivity with Gravity the time tracker.
+            Turn your team on to productivity with Gravity the time tracker.
         </p>
         <a href="#" class="hero__cta hero__cta--primary"
-          >Request early access</a
+        >Request early access</a
         >
-      </div>
-    </section>
-    <!-- End Hero Section -->
+    </div>
+</section>
+<!-- End Hero Section -->
 
-    <!-- About Section -->
-    <section id="about" class="hero container container-pall">
-      <div class="hero__image">
+<!-- About Section -->
+<section id="about" class="hero container container-pall">
+    <div class="hero__image">
         <img
-          src="./about.svg"
-          alt="Hero Image"
-          class="hero__illustration-image"
-          draggable="false"
+                src="./about.svg"
+                alt="Hero Image"
+                class="hero__illustration-image"
+                draggable="false"
         />
-      </div>
+    </div>
 
-      <div class="hero__text">
+    <div class="hero__text">
         <h1 style="color: #00ffda" class="mt-5 hero__heading">About Us</h1>
         <p class="hero__description">
-          We are a group of passionate engineers who really wish to showcase their creativity through innovative developments in metal additive manufacturing. Our product is expected to be revolutionary in the sector and will have a huge impact on the gold ornament industry. We also offer metal casting and 3D printing at a reasonable price.
+            We are a group of passionate engineers who really wish to showcase their creativity through innovative
+            developments in metal additive manufacturing. Our product is expected to be revolutionary in the sector and
+            will have a huge impact on the gold ornament industry. We also offer metal casting and 3D printing at a
+            reasonable price.
         </p>
-      </div>
-    </section>
-    <!-- End About Section -->
+    </div>
+</section>
+<!-- End About Section -->
 
-    <!-- Services section -->
-    <section id="services" style="min-height: 100vh;" class="p-5 container container-pall">
-      <h1 style="color: #00ffda;" class="mt-5 pt-5 hero__heading">Services</h1>
-      <div style="z-index: 0;" class="hero__description d-flex justify-content-around flex-wrap">
+<!-- Services section -->
+<section id="services" style="min-height: 100vh;" class="p-5 container container-pall">
+    <h1 style="color: #00ffda;" class="mt-5 pt-5 hero__heading">Services</h1>
+    <div style="z-index: 0;" class="hero__description d-flex justify-content-around flex-wrap">
         <div class="card1">
-          <div class="content">
-            <h3>Lorem, ipsum.</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Doloribus excepturi reiciendis facere, officiis ullam. Illum
-              iusto, repellendus itaque corrupti suscipit at!
-            </p>
-          </div>
+            <div class="content">
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Doloribus excepturi reiciendis facere, officiis ullam. Illum
+                    iusto, repellendus itaque corrupti suscipit at!
+                </p>
+            </div>
         </div>
         <div class="card1">
-          <div class="content">
-            <h3>Lorem, ipsum.</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Doloribus excepturi reiciendis facere, officiis ullam. Illum
-              iusto, repellendus itaque corrupti suscipit at!
-            </p>
-          </div>
+            <div class="content">
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Doloribus excepturi reiciendis facere, officiis ullam. Illum
+                    iusto, repellendus itaque corrupti suscipit at!
+                </p>
+            </div>
         </div>
         <div class="card1">
-          <div class="content">
-            <h3>Lorem, ipsum.</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Doloribus excepturi reiciendis facere, officiis ullam. Illum
-              iusto, repellendus itaque corrupti suscipit at!
-            </p>
-          </div>
+            <div class="content">
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Doloribus excepturi reiciendis facere, officiis ullam. Illum
+                    iusto, repellendus itaque corrupti suscipit at!
+                </p>
+            </div>
         </div>
-      </div>
-    </section>
-    <!-- End Services section -->
+    </div>
+</section>
+<!-- End Services section -->
 
-    <!-- why us section  -->
-    <section id="why-us" class="hero container container-pall">
-      <div class="hero__image">
+<!-- why us section  -->
+<section id="why-us" class="hero container container-pall">
+    <div class="hero__image">
         <img
-          src="./whyus.svg"
-          alt="Hero Image"
-          class="hero__illustration-image"
-          draggable="false"
+                src="./whyus.svg"
+                alt="Hero Image"
+                class="hero__illustration-image"
+                draggable="false"
         />
-      </div>
+    </div>
 
-      <div class="hero__text">
+    <div class="hero__text">
         <div class="content rellax" data-rellax-speed="10">
-          <h1 style="color: #00ffda" class="mt-5 hero__heading">Why Inbam</h1>
-          <div>
-            <h2 class="secondary-text">Stream Everything</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-              fugit molestiae placeat nesciunt autem et quos sapiente voluptates,
-              magnam doloribus?
-            </p>
-          </div>
-          <div>
-            <h2 class="secondary-text">Short is the New Long</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-              fugit molestiae placeat nesciunt autem et quos sapiente voluptates,
-              magnam doloribus?
-            </p>
-          </div>
+            <h1 style="color: #00ffda" class="mt-5 hero__heading">Why Inbam</h1>
+            <div>
+                <h2 class="secondary-text">Stream Everything</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+                    fugit molestiae placeat nesciunt autem et quos sapiente voluptates,
+                    magnam doloribus?
+                </p>
+            </div>
+            <div>
+                <h2 class="secondary-text">Short is the New Long</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+                    fugit molestiae placeat nesciunt autem et quos sapiente voluptates,
+                    magnam doloribus?
+                </p>
+            </div>
         </div>
-    </section>
-    <!-- End why us section  -->
+</section>
+<!-- End why us section  -->
 
-    <!-- footer section  -->
-    <footer class="footer-section">
-      <div class="copyright-area">
+<!-- footer section  -->
+<footer class="footer-section">
+    <div class="copyright-area">
         <div class="container">
-          <div class="row">
-            <div class="copyright-text">
-               <center>&copy; 2021 Created By Inbam<!--<img class="footer-logo" src="assets/img/logo.png" alt="">--><br>All 
-                Rights
-                Reserved</center>
+            <div class="row">
+                <div class="copyright-text">
+                    <center>&copy; 2021 Created By Inbam
+                        <!--<img class="footer-logo" src="assets/img/logo.png" alt="">--><br>All
+                        Rights
+                        Reserved
+                    </center>
+                </div>
+                <div class="header-social-links d-flex align-items-center justify-content-center align-items-center w-100">
+                    <a href="#" target="blank" class="instagram"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="#" target="blank" class="facebook"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="#" target="blank" class="linkedin"><i
+                            class="bi bi-linkedin"></i></i></a>
+                    <a href="https://twitter.com/CusatSeds" target="blank" class="twitter"><i class="bi bi-twitter"></i></a>
+                </div>
             </div>
-            <div class="header-social-links d-flex align-items-center justify-content-center align-items-center w-100">
-              <a href="#" target="blank" class="instagram"><i
-                  class="bi bi-instagram"></i></a>
-              <a href="#" target="blank" class="facebook"><i
-                  class="bi bi-facebook"></i></a>
-              <a href="#" target="blank" class="linkedin"><i
-                  class="bi bi-linkedin"></i></i></a>
-              <a href="https://twitter.com/CusatSeds" target="blank" class="twitter"><i class="bi bi-twitter"></i></a>
-            </div>
-          </div>
         </div>
-      </div>
-    </footer>
-    <!-- End footer section  -->
+    </div>
+</footer>
+<!-- End footer section  -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+></script>
 
-    <script src="./script.js"></script>
-  </body>
+<script src="./script.js"></script>
+</body>
 </html>
 
 <!-- <!DOCTYPE html>
