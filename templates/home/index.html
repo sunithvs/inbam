@@ -74,19 +74,23 @@
                             >
                         </li>
                     </ul>
-                    <div class="d-flex ms-lg-4 m-sm-2 mb-4">
+                    <div class="d-flex ms-lg-4 m-sm-2 mb-4 mx-2">
+                        {% if user.is_superuser %}
+                            <a
+                                    class="btn btn-outline-light btn-lg mx-2"
+                                    href="/admin"
+                            >console</a>
+                        {% endif %}
                         {% if user.is_authenticated %}
                             <a
-                                    class="btn btn-outline-light btn-lg"
+                                    class="btn btn-outline-light btn-lg mx-2"
                                     href="{% url 'logout' %}"
-                            >Logout</a
-                            >
+                            >Logout</a>
                         {% else %}
                             <a
-                                    class="btn btn-outline-light btn-lg"
+                                    class="btn btn-outline-light btn-lg mx-2"
                                     href="{% url 'login' %}"
-                            >Login</a
-                            >
+                            >Login</a>
                         {% endif %}
 
                     </div>

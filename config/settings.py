@@ -12,7 +12,7 @@ if settings == "prod":
 
     ALLOWED_HOSTS = ["dev.inbam.tech", ""]
     cors_allowed_origins = ["https://dev.inbam.tech", "http://dev.inbam.tech"]
-    CSRF_TRUSTED_ORIGINS = ["dev.inbam.tech", "http://dev.inbam.tech", "https://dev.inbam.tech"]
+    CSRF_TRUSTED_ORIGINS = [ "http://dev.inbam.tech"]
 
     STATIC_ROOT = "/var/www/html/static/"
     MEDIA_ROOT = '/var/www/html/media'
@@ -21,6 +21,10 @@ else:
     print("DEV SERVER")
     DEBUG = True
     from .common_settings import *
+
+    ALLOWED_HOSTS += ["dev.inbam.tech", ""]
+    cors_allowed_origins += ["https://dev.inbam.tech", "http://dev.inbam.tech"]
+    CSRF_TRUSTED_ORIGINS += ["http://dev.inbam.tech", "https://dev.inbam.tech"]
 
     DATABASES = {
         'default': {
