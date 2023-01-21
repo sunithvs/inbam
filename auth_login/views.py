@@ -77,6 +77,9 @@ def signup(request):
 
 @login_required
 def log_out(request):
-    logout(request)
-    url = '/?' + request.META['QUERY_STRING']
-    return HttpResponseRedirect(url)
+    if request.method == "POST":
+        logout(request)
+        url = '/?' + request.META['QUERY_STRING']
+        return HttpResponseRedirect(url)
+
+    return render(request, template_name="account/logout.html")
