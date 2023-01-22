@@ -20,7 +20,7 @@ class Address(models.Model):
 # a model for an order of a 3d printing service oline
 class Order(models.Model):
     valid_extensions = ['stl', 'STL', 'Stl', 'sTL', 'stL', 'sTl', 'StL', 'STl']
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth_login.User', on_delete=models.CASCADE)
 
     # the name of the order
     name = models.CharField(max_length=200)

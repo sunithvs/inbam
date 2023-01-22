@@ -17,15 +17,14 @@
                 >
                     <div class="card-body p-4 p-sm-5">
                         <h3 class="card-title text-center mb-5 text-white">Sign Up</h3>
-                        <form action="/signup/?{{ request.META.QUERY_STRING }}" method="post">
-                            {% csrf_token %}
+                        <form>
                             <div class="form-floating mb-3">
                                 <input
                                         type="text"
                                         name="name"
                                         class="form-control"
                                         id="floatingName"
-                                        placeholder="full name"
+                                        placeholder="name"
                                 />
                                 <label for="floatingName">Name</label>
                             </div>
@@ -88,10 +87,10 @@
                             </div>
 
                         </form>
-                        <div class="mt-5 w-100 text-center">
-                            <p class="text-white">Already have an account? </p><a
-                                class="link-fancy link-fancy-light" href="{% url "login" %}"> Login </a>
-                        </div>
+                               <div class="mt-5 w-100 text-center">
+                                <p class="text-white">Already have an account? </p><a
+                                    class="link-fancy link-fancy-light" href="{% url "login" %}"> Login </a>
+                            </div>
                     </div>
                 </div>
             </div>
