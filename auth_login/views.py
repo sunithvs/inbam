@@ -68,6 +68,9 @@ def signup(request):
                     print(e)
 
                     context1['pswderr'] = 'User already exists'
+                except Exception as e:
+                    print(e)
+                    context1['pswderr'] = 'Something went wrong'
 
             else:
 
