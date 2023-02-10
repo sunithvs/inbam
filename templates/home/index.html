@@ -13,91 +13,7 @@
             data-bs-target="#navScroll"
     >
     <main>
-        <nav
-                class="navbar navbar-expand-lg navbar-dark fixed-top p-0 bg-black"
-                data-navbar-on-scroll="data-navbar-on-scroll"
-        >
-            <div class="container">
-                <a class="navbar-brand" href="index.html"
-                ><img src="{% static "img/logo.png" %}" height="90" alt="logo"
-                /></a>
-                <button
-                        class=" navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"> </span>
-                </button>
-                <div
-                        class="collapse navbar-collapse mt-4 mt-lg-0"
-                        id="navbarSupportedContent"
-                >
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item m-3">
-                            <a
-                                    style="font-weight: 900"
-                                    class="link-fancy link-fancy-light"
-                                    aria-current="page"
-                                    href="#home"
-                            >Home</a
-                            >
-                        </li>
-                        <li class="nav-item m-3">
-                            <a
-                                    style="font-weight: 900"
-                                    class="link-fancy link-fancy-light"
-                                    aria-current="page"
-                                    href="#about"
-                            >About</a
-                            >
-                        </li>
-                        <li class="nav-item m-3">
-                            <a
-                                    style="font-weight: 900"
-                                    class="link-fancy link-fancy-light"
-                                    aria-current="page"
-                                    href="#services"
-                            >Services</a
-                            >
-                        </li>
-                        <li class="nav-item m-3">
-                            <a
-                                    style="font-weight: 900"
-                                    class="link-fancy link-fancy-light"
-                                    aria-current="page"
-                                    href="#why"
-                            >Why Inbum ?</a
-                            >
-                        </li>
-                    </ul>
-                    <div class="d-flex ms-lg-4 m-sm-2 mb-4 mx-2">
-                        {% if user.is_superuser %}
-                            <a
-                                    class="btn btn-outline-light btn-lg mx-2"
-                                    href="/admin"
-                            >console</a>
-                        {% endif %}
-                        {% if user.is_authenticated %}
-                            <a
-                                    class="btn btn-outline-light btn-lg mx-2"
-                                    href="{% url 'logout' %}"
-                            >Logout</a>
-                        {% else %}
-                            <a
-                                    class="btn btn-outline-light btn-lg mx-2"
-                                    href="{% url 'login' %}"
-                            >Login</a>
-                        {% endif %}
-
-                    </div>
-                </div>
-            </div>
-        </nav>
-
+        {% include "components/navbar.html" %}
         <div
                 id="home"
                 class="w-100 hero overflow-hidden position-relative bg-black text-white"
@@ -115,15 +31,14 @@
                     <div class="col-12 col-xl-10">
                         <span class="h5 fw-lighter">Our Mission</span>
                         <h1 style="color: #00ffda" class="display-huge mt-3 mb-3 lh-1">
-                            We do ordinary stuff for cool people
+                            Revolutionize the manufacturing industry
                         </h1>
                     </div>
                     <div class="col-12 col-xl-8">
                         <p class="lead">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
-                            modi ratione provident vero hic autem nemo ullam corrupti.
-                            Dolore quae nemo dolor reprehenderit est placeat ipsa veniam
-                            porro eos.
+                            To provide high-quality, cost-effective, and flexible solutions in additive manufacturing
+                            and contract manufacturing to help our clients achieve their goals and reimagine their
+                            production process.
                         </p>
                     </div>
                     <div class="col-12 text-center">
@@ -214,18 +129,14 @@
                             <!-- <span class="fs-6 fw-light">/day</span> -->
                         </h2>
                         <p style="text-align: left;" class="lead">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Consequatur ex ducimus repellat eos beatae doloremque dolor?
-                            Similique nihil velit perspiciatis illo ex, accusantium eligendi
-                            placeat. Rem debitis, aliquam mollitia dolorem quod accusamus.
-                            Repudiandae quibusdam omnis facere excepturi eaque iste culpa
-                            accusamus reprehenderit. Vel illo possimus, dolorem quas qui
-                            omnis sit minima ducimus repudiandae, temporibus ea quis
-                            assumenda natus ratione dolores at quisquam culpa quos autem
-                            atque? Soluta amet illum eos, nesciunt velit itaque omnis! Vel
-                            saepe dolor eum unde blanditiis perferendis accusantium totam
-                            cumque aspernatur atque eius ipsam, omnis quasi! Quisquam ipsa
-                            quo illum quas blanditiis autem aliquam voluptatibus veritatis.
+                            We are a group of passionate engineers who really wish to showcase their creativity through
+                            innovative developments in metal additive manufacturing. Our product is expected to be
+                            revolutionary in the sector and will have a huge impact on the gold ornament industry. We
+                            also offer metal casting and 3D printing at a reasonable price.
+                            . We are committed to providing high-quality products that meet the unique needs of our
+                            clients, and we strive to deliver exceptional customer service with each project we
+                            undertake. Whether it's through our metal casting or 3D printing services, we are dedicated
+                            to revolutionizing the gold ornament industry and beyond
                         </p>
                         <a href="#" class="btn btn-xl btn-light"
                         >Sign up
@@ -255,62 +166,26 @@
                         <span class="h5 fw-lighter">What We Provide</span>
                         <h2 class="display-4">Services</h2>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
-                            <div class="bg-dark shadow rounded-5 p-0">
-                                <div class="p-5">
-                                    <h2>Ipsum dolor est</h2>
-                                    <p class="pb-4">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                        magna aliquyam erat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    {% for service in services %}
+                        <div class="col-12 col-md-6">
 
-                        <div class="card bg-transparent" data-aos="zoom-in-up">
-                            <div class="bg-dark shadow rounded-5 p-0">
-                                <div class="p-5">
-                                    <h2>Ipsum dolor est</h2>
-                                    <p class="pb-4">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                        magna aliquyam erat.
-                                    </p>
+                            <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
+                                <div class="bg-dark shadow rounded-5 p-0">
+                                    <div class="p-5">
+                                        <h2>{{ service.title }}</h2>
+                                        <p class="pb-4">
+                                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                            sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                            magna aliquyam erat.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="card bg-transparent mb-5 mt-5" data-aos="zoom-in-up">
-                            <div class="bg-dark shadow rounded-5 p-0">
-                                <div class="p-5">
-                                    <h2>Ipsum dolor est</h2>
-                                    <p class="pb-4">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                        magna aliquyam erat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card bg-transparent" data-aos="zoom-in-up">
-                            <div class="bg-dark shadow rounded-5 p-0">
-                                <div class="p-5">
-                                    <h2>Ipsum dolor est</h2>
-                                    <p class="pb-4">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                        magna aliquyam erat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
+        </div>
         </div>
 
         <div id="why" class="bg-dark">
@@ -321,52 +196,13 @@
                         <h2 class="display-4">Why Inbum ?</h2>
                     </div>
                     <div class="col-12 col-lg-5" data-aos="fade-left">
-                        <h3 class="pt-5">Product Design & Strategy</h3>
-                        <p class="text-secondary">
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                            aliquyam erat, sed diam voluptua.
-                            <!-- <a href="#" class="link-fancy link-fancy-light me-2"
-                              >Tell me more</a
-                            >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              fill="currentColor"
-                              class="bi bi-arrow-right-circle"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                              />
-                            </svg> -->
-                        </p>
-                        <h3 class="border-top border-secondary pt-5 mt-5">
-                            Development & Engineering
-                        </h3>
-                        <p class="text-secondary">
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                            aliquyam erat, sed diam voluptua.
-                            <!-- <a href="#" class="link-fancy link-fancy-light me-2"
-                              >Tell me more</a
-                            >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              fill="currentColor"
-                              class="bi bi-arrow-right-circle"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                              />
-                            </svg> -->
-                        </p>
+                        {% for why in why_choose_us %}
+
+                            <h3 class="pt-5">{{ why.title }}</h3>
+                            <p class="text-secondary">
+                                {{ why.description }}
+                            </p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

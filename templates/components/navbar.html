@@ -1,0 +1,85 @@
+{% load static %}
+<nav
+        class="navbar navbar-expand-lg navbar-dark fixed-top p-0 bg-black"
+        data-navbar-on-scroll="data-navbar-on-scroll"
+>
+    <div class="container">
+        <a class="navbar-brand" href="index.html"
+        ><img src="{% static "img/logo.png" %}" height="90" alt="logo"
+        /></a>
+        <button
+                class=" navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div
+                class="collapse navbar-collapse mt-4 mt-lg-0"
+                id="navbarSupportedContent"
+        >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item m-3">
+                    <a
+                            style="font-weight: 900"
+                            class="link-fancy link-fancy-light"
+                            aria-current="page"
+                            href="/#home"
+                    >Home</a
+                    >
+                </li>
+                <li class="nav-item m-3">
+                    <a
+                            style="font-weight: 900"
+                            class="link-fancy link-fancy-light"
+                            aria-current="page"
+                            href="/#about"
+                    >About</a
+                    >
+                </li>
+                <li class="nav-item m-3">
+                    <a
+                            style="font-weight: 900"
+                            class="link-fancy link-fancy-light"
+                            aria-current="page"
+                            href="/#services"
+                    >Services</a
+                    >
+                </li>
+                <li class="nav-item m-3">
+                    <a
+                            style="font-weight: 900"
+                            class="link-fancy link-fancy-light"
+                            aria-current="page"
+                            href="/#why"
+                    >Why Inbum ?</a
+                    >
+                </li>
+            </ul>
+            <div class="d-flex ms-lg-4 m-sm-2 mb-4 mx-2">
+                {% if user.is_superuser %}
+                    <a
+                            class="btn btn-outline-light btn-lg mx-2"
+                            href="/admin"
+                    >console</a>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <a
+                            class="btn btn-outline-light btn-lg mx-2"
+                            href="{% url 'logout' %}"
+                    >Logout</a>
+                {% else %}
+                    <a
+                            class="btn btn-outline-light btn-lg mx-2"
+                            href="{% url 'login' %}"
+                    >Login</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</nav>
