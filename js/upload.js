@@ -47,9 +47,11 @@ let isAdvancedUpload = function() {
                     if (width >= 390) {
                       clearInterval(id);
                       uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
+                      location.href = 'preview.html'
                     } else {
                       width += 5;
                       progressBar.style.width = width + "px";
+                      location.href = 'preview.html'
                     }
               }
             }
@@ -82,7 +84,7 @@ let isAdvancedUpload = function() {
       draggableFileArea.addEventListener("drop", e => {
           uploadIcon.innerHTML = 'check_circle';
           dragDropText.innerHTML = 'File Dropped Successfully!';
-          document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
+          document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files">  <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> <br> <input type="file" class="default-file-input" style=""/> </span>`;
           uploadButton.innerHTML = `Upload`;
           
           let files = e.dataTransfer.files;
@@ -102,6 +104,6 @@ let isAdvancedUpload = function() {
       fileInput.value = '';
       uploadIcon.innerHTML = 'file_upload';
       dragDropText.innerHTML = 'Drag & drop any file here';
-      document.querySelector(".label").innerHTML = `or <span class="browse-files"> <input type="file" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span>`;
+      document.querySelector(".label").innerHTML = `or <span class="browse-files"><span class="browse-files-text">browse file</span> <span>from device</span><br><input type="file" class="default-file-input"/> </span>`;
       uploadButton.innerHTML = `Upload`;
   });
