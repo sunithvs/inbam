@@ -1106,6 +1106,15 @@ img {
 .link-fancy:hover {
   color: #00ffda;
 }
+
+.link-fancy-dark {
+  color: rgb(89 110 123);
+}
+.link-fancy-dark:hover {
+  color: #12ab91;
+}
+
+
 .link-fancy-light:hover {
   color: #00ffda;
 }
@@ -1369,6 +1378,8 @@ body[data-aos-duration="3000"] [data-aos] {
   color: #fff;
   border-radius: 5px;
 }
+
+
 
 
 @media (max-width: 768px) {
