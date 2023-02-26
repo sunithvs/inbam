@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-cag@!muz(kv)t31hxk6w3b)^vzt62_n1wo8&@89)ueefs6p4-7
 # SECURITY WARNING: don't run with debug turned on in production!
 RAZOR_KEY_ID = os.getenv("RAZOR_KEY_ID")
 RAZOR_KEY_SECRET = os.getenv("RAZOR_KEY_SECRET")
-
+DEPLOYMENT_URL = "http://127.0.0.1:8000/"
 ALLOWED_HOSTS = ["*"]
 cors_allowed_origins = ["https://localhost:8000", "https://api.trebuchet.one", "https://trebuchet.one"]
 # Application definition
@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     # local apps
     "home",
     "auth_login",
+    "printing",
+    "payment",
 
 ]
 
@@ -152,6 +154,9 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+# 404 and 500 error pages
+handler404 = 'home.views.error_404_view'
+handler500 = 'home.views.error_500_view'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type

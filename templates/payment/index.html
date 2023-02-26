@@ -11,11 +11,11 @@
         "description": "Test Transaction",
         "image": "http://localhost:8000/static/img/logo.png",
         "order_id": "{{ razorpay_order_id }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        "callback_url": "http://localhost:8000/payment/callback/",
+        "callback_url": "{{ callback_url }}",
         "prefill": {
             "name": "{{ order.user.first_name }}",
             "email": "{{ order.user.email }}",
-            "contact": "{{}}"
+            "contact": "+919072124291"
         },
         "notes": {
             "address": "Razorpay Corporate Office"

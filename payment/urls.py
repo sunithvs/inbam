@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("callback/", views.payment_handler, name="payment_handler"),
-    # path("checkout/", views.CheckoutView.as_view(), name="checkout"),
+    # path("checkout.html/", views.CheckoutView.as_view(), name="checkout.html"),
 ]
