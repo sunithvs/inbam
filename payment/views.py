@@ -62,7 +62,6 @@ def payment_handler(request):
             order = Order.objects.filter(razorpay_order_id=razorpay_order_id).first()
             if result is not None:
                 amount = int(order.price) * 100
-                print(f"{int(amount) = }")
                 try:
 
                     # capture the payment

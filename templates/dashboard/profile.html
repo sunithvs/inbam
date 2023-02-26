@@ -1,143 +1,146 @@
 {% extends "dashboard/base.html" %}
 +{% load i18n %}
 +{% load static %}
+{% block styles %}
+        <link rel="stylesheet" href="{% static "css/dashboard.css" %} "/>
 
+{% endblock %}
 {% block contents %}
-     <main class="h-full overflow-y-auto">
-            <div class="container px-6 mx-auto grid">
-                <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                    Profile
-                </h2>
+    <main class="h-full overflow-y-auto">
+        <div class="container px-6 mx-auto grid">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                Profile
+            </h2>
 
-                <div class="container">
+            <div class="container">
 
-                    <script>
+                <script>
 
-                        const onEdit = () => {
+                    const onEdit = () => {
 
-                            document.getElementById('email').style.pointerEvents = 'auto';
-                            document.getElementById('email').focus();
+                        document.getElementById('email').style.pointerEvents = 'auto';
+                        document.getElementById('email').focus();
 
-                            document.getElementById('mobile').style.pointerEvents = 'auto';
-                            document.getElementById('mobile').focus();
+                        document.getElementById('mobile').style.pointerEvents = 'auto';
+                        document.getElementById('mobile').focus();
 
-                            document.getElementById('address').style.pointerEvents = 'auto';
-                            document.getElementById('address').focus();
+                        document.getElementById('address').style.pointerEvents = 'auto';
+                        document.getElementById('address').focus();
 
-                            document.getElementById('fname').style.pointerEvents = 'auto';
-                            document.getElementById('fname').focus();
+                        document.getElementById('fname').style.pointerEvents = 'auto';
+                        document.getElementById('fname').focus();
 
-                            if (localStorage.getItem('dark') === 'true') {
-                                document.getElementById('fname').style.background = '#1e1e1e';
-                                document.getElementById('address').style.background = '#1e1e1e';
-                                document.getElementById('mobile').style.background = '#1e1e1e';
-                                document.getElementById('email').style.background = '#1e1e1e';
-                            } else {
-                                document.getElementById('fname').style.background = '#c0ccc3';
-                                document.getElementById('address').style.background = '#c0ccc3';
-                                document.getElementById('mobile').style.background = '#c0ccc3';
-                                document.getElementById('email').style.background = '#c0ccc3';
-                            }
-
-                            document.getElementById('edit1').style.display = 'none';
-                            document.getElementById('check1').style.display = 'inline-block';
-
-
-                            setTimeout(() => {
-                                document.getElementById('email').style.background = 'none';
-                                document.getElementById('mobile').style.background = 'none';
-                                document.getElementById('address').style.background = 'none';
-                                document.getElementById('fname').style.background = 'none';
-                            }, 500);
-
+                        if (localStorage.getItem('dark') === 'true') {
+                            document.getElementById('fname').style.background = '#1e1e1e';
+                            document.getElementById('address').style.background = '#1e1e1e';
+                            document.getElementById('mobile').style.background = '#1e1e1e';
+                            document.getElementById('email').style.background = '#1e1e1e';
+                        } else {
+                            document.getElementById('fname').style.background = '#c0ccc3';
+                            document.getElementById('address').style.background = '#c0ccc3';
+                            document.getElementById('mobile').style.background = '#c0ccc3';
+                            document.getElementById('email').style.background = '#c0ccc3';
                         }
 
-                        const onSave = () => {
+                        document.getElementById('edit1').style.display = 'none';
+                        document.getElementById('check1').style.display = 'inline-block';
 
-                            document.getElementById('email').style.pointerEvents = 'none';
-                            document.getElementById('edit1').style.display = 'inline-block';
-                            document.getElementById('check1').style.display = 'none';
 
-                            document.getElementById('mobile').style.pointerEvents = 'none';
-                            document.getElementById('edit1').style.display = 'inline-block';
-                            document.getElementById('check1').style.display = 'none';
+                        setTimeout(() => {
+                            document.getElementById('email').style.background = 'none';
+                            document.getElementById('mobile').style.background = 'none';
+                            document.getElementById('address').style.background = 'none';
+                            document.getElementById('fname').style.background = 'none';
+                        }, 500);
 
-                            document.getElementById('address').style.pointerEvents = 'none';
-                            document.getElementById('edit1').style.display = 'inline-block';
-                            document.getElementById('check1').style.display = 'none';
+                    }
 
-                            document.getElementById('fname').style.pointerEvents = 'none';
-                            document.getElementById('edit1').style.display = 'inline-block';
-                            document.getElementById('check1').style.display = 'none';
-                        }
+                    const onSave = () => {
 
-                    </script>
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <table class="profile-table">
-                            <tr class="profile-table-tr">
-                                <td class="dp">
-                                    <section class="fileUploader">
-                                        <label for="fileToUpload" class="fileUploaderLabel">
-                                            <i class="fa fa-camera "></i>
-                                            <input type="file" id="fileToUpload" style="visibility:hidden;"
-                                                   accept=".png,.jpg,jpeg,.PNG,.JPEG"
-                                                   name="fileToUpload"
-                                                   onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
-                                        </label>
-                                        <img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
-                                    </section>
-                                    <h1 class="text-gray-700 dark:text-gray-200">User name</h1>
-                                </td>
-                                <td class="profile-details">
+                        document.getElementById('email').style.pointerEvents = 'none';
+                        document.getElementById('edit1').style.display = 'inline-block';
+                        document.getElementById('check1').style.display = 'none';
 
-                                    <table class="profile-details-table">
-                                        <tr>
-                                            <i class="fa fa-edit fa_edit" id="edit1" onclick="onEdit()"></i>
-                                            <i class="fa fa-check fa_edit" style="display:none;" id="check1"
-                                               onclick="onSave()"></i>
-                                        </tr>
-                                        <tr>
-                                            <td><b class="text-gray-700 dark:text-gray-200">Full name </b></td>
-                                            <td><input type="text" name="fname" id="fname" maxlength="100"
-                                                       value="Username"
-                                                       required/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b class="text-gray-700 dark:text-gray-200">Email </b>
-                                            </td>
-                                            <td>
-                                                <input type="email" name="email" id="email" maxlength="150"
-                                                       value="user@gmail.com" required/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b class="text-gray-700 dark:text-gray-200">Contact number </b>
-                                            </td>
-                                            <td>
-                                                <input type="tel" name="mobile" id="mobile" maxlength="10"
-                                                       value="0123456789" required/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <b class="text-gray-700 dark:text-gray-200">Address </b>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="address" id="address" maxlength="250"
-                                                       value="Street, Pincode, Province/State, Country" required/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
+                        document.getElementById('mobile').style.pointerEvents = 'none';
+                        document.getElementById('edit1').style.display = 'inline-block';
+                        document.getElementById('check1').style.display = 'none';
 
-                    </form>
-                </div>
+                        document.getElementById('address').style.pointerEvents = 'none';
+                        document.getElementById('edit1').style.display = 'inline-block';
+                        document.getElementById('check1').style.display = 'none';
+
+                        document.getElementById('fname').style.pointerEvents = 'none';
+                        document.getElementById('edit1').style.display = 'inline-block';
+                        document.getElementById('check1').style.display = 'none';
+                    }
+
+                </script>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table class="profile-table">
+                        <tr class="profile-table-tr">
+                            <td class="dp">
+                                <section class="fileUploader">
+                                    <label for="fileToUpload" class="fileUploaderLabel">
+                                        <i class="fa fa-camera "></i>
+                                        <input type="file" id="fileToUpload" style="visibility:hidden;"
+                                               accept=".png,.jpg,jpeg,.PNG,.JPEG"
+                                               name="fileToUpload"
+                                               onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                    </label>
+                                    <img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
+                                </section>
+                                <h1 class="text-gray-700 dark:text-gray-200">User name</h1>
+                            </td>
+                            <td class="profile-details">
+
+                                <table class="profile-details-table">
+                                    <tr>
+                                        <i class="fa fa-edit fa_edit" id="edit1" onclick="onEdit()"></i>
+                                        <i class="fa fa-check fa_edit" style="display:none;" id="check1"
+                                           onclick="onSave()"></i>
+                                    </tr>
+                                    <tr>
+                                        <td><b class="text-gray-700 dark:text-gray-200">Full name </b></td>
+                                        <td><input type="text" name="fname" id="fname" maxlength="100"
+                                                   value="Username"
+                                                   required/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b class="text-gray-700 dark:text-gray-200">Email </b>
+                                        </td>
+                                        <td>
+                                            <input type="email" name="email" id="email" maxlength="150"
+                                                   value="user@gmail.com" required/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b class="text-gray-700 dark:text-gray-200">Contact number </b>
+                                        </td>
+                                        <td>
+                                            <input type="tel" name="mobile" id="mobile" maxlength="10"
+                                                   value="0123456789" required/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b class="text-gray-700 dark:text-gray-200">Address </b>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="address" id="address" maxlength="250"
+                                                   value="Street, Pincode, Province/State, Country" required/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                </form>
             </div>
-        </main>
+        </div>
+    </main>
 {% endblock %}
