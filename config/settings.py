@@ -12,8 +12,8 @@ if settings == "prod":
 
     ALLOWED_HOSTS = ["dev.inbam.tech", ""]
     cors_allowed_origins = ["https://dev.inbam.tech", "http://dev.inbam.tech"]
-    CSRF_TRUSTED_ORIGINS = [ "http://dev.inbam.tech"]
-
+    CSRF_TRUSTED_ORIGINS = ["https://dev.inbam.tech"]
+    DEPLOYMENT_URL = "https://dev.inbam.tech"
     STATIC_ROOT = "/var/www/html/static/"
     MEDIA_ROOT = '/var/www/html/media'
 
