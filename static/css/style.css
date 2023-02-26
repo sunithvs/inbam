@@ -1109,9 +1109,11 @@ img {
 
 .link-fancy-dark {
   color: rgb(89 110 123);
+  text-decoration: none;
 }
 .link-fancy-dark:hover {
   color: #12ab91;
+  text-decoration: none;
 }
 
 
