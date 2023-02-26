@@ -1,10 +1,20 @@
 {% load static %}
+<style>
+
+    .accordion {
+    --bs-accordion-btn-icon: url('http://127.0.0.1:8000/static/img/down.png') !important;
+    --bs-accordion-btn-active-icon: url('http://127.0.0.1:8000/static/img/up.png') !important
+    {#    --bs-accordion-btn-icon: url('{% static "img/down.png" %}') !important;#}
+    {#--bs-accordion-btn-active-icon: url('{% static "img/up.png" %}') !important#}
+}
+
+</style>
 <nav
         class="navbar navbar-expand-lg navbar-dark fixed-top p-0 bg-black"
         data-navbar-on-scroll="data-navbar-on-scroll"
 >
     <div class="container">
-        <a class="navbar-brand" href="index.html"
+        <a class="navbar-brand" href="/"
         ><img src="{% static "img/logo.png" %}" height="90" alt="logo"
         /></a>
         <button
@@ -22,6 +32,8 @@
                 class="collapse navbar-collapse mt-4 mt-lg-0"
                 id="navbarSupportedContent"
         >
+
+
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item m-3">
                     <a
@@ -41,15 +53,175 @@
                     >About</a
                     >
                 </li>
-                <li class="nav-item m-3">
-                    <a
+
+                <div class="accordion mobile" id="services-accordion">
+                    <div class=" remove--border"  style="background: black; color: white;box-shadow: none;">
+                        <h2 class="accordion-header" id="services-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#services-collapse" aria-expanded="false"
+                                    aria-controls="services-collapse"style="background: black; color: white; box-shadow: none;">
+                                <a
                             style="font-weight: 900"
                             class="link-fancy link-fancy-light"
                             aria-current="page"
-                            href="/#services"
+                            href="/#about"
                     >Services</a
                     >
-                </li>
+                            </button>
+                        </h2>
+                        <div id="services-collapse" class="accordion-collapse collapse"
+                             aria-labelledby="services-heading" data-bs-parent="#services-accordion">
+                            <div class="accordion-body">
+                                <div class="accordion" id="multi-level-accordion">
+                                    <div class=" remove--border">
+                                        <h2 class="accordion-header" id="heading-one">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-one"
+                                                    aria-expanded="false" aria-controls="collapse-one"
+                                                    style="background: black; color: #00ffda;box-shadow: none;">
+                                                Direct Manufacturing
+                                            </button>
+                                        </h2>
+                                        <div id="collapse-one" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-one" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body" style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Online 3D printing
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" remove--border">
+                                        <h2 class="accordion-header" id="heading-two">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-two"
+                                                    aria-expanded="false" aria-controls="collapse-two"style="background: black; color: #00ffda;;box-shadow: none;">
+                                                Solutions
+                                            </button>
+                                        </h2>
+                                        <div id="collapse-two" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none;margin-left: 2em">
+                                                Contract Manufacturing
+                                            </div>
+                                        </div>
+                                        <div id="collapse-two" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                On-Demand Manufacturing
+                                            </div>
+                                        </div>
+                                        <div id="collapse-two" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Rapid Prototyping
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" remove--border">
+                                        <h2 class="accordion-header" id="heading-three">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-three"
+                                                    aria-expanded="false" aria-controls="collapse-three"style="background: black; color: #00ffda;;box-shadow: none;">
+                                                Additive Manufacturing
+                                            </button>
+                                        </h2>
+                                        <div id="collapse-three" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-three" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Design studio
+                                            </div>
+                                        </div>
+                                        <div id="collapse-three" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-three" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Consulting
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" remove--border">
+                                        <h2 class="accordion-header" id="heading-four">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-four"
+                                                    aria-expanded="false" aria-controls="collapse-four"style="background: black; box-shadow: none; color: #FFD700;">
+                                                Inbam Gold
+                                            </button>
+                                        </h2>
+                                        <div id="collapse-four" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Online 3D printing
+                                            </div>
+                                        </div>
+                                        <div id="collapse-four" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Cosulting
+                                            </div>
+                                        </div>
+                                        <div id="collapse-four" class="accordion-collapse collapse"
+                                             aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
+                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                                Design Studio
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menu-item highlight">
+                    <div class="menu-text">
+                        <a
+                                style="font-weight: 900"
+                                class="link-fancy link-fancy-light"
+                                aria-current="page"
+                                href="/#services"
+                        >Services</a>
+                    </div>
+                    <div class="sub-menu double">
+                        <div class="icon-box gb a">
+                            <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                            <div class="text">
+                                <div class="title">Direct Manufacturing <i class="far fa-arrow-right"></i></div>
+                                <div class="link-fancy-dark mb-1 ">Online 3D printing services</div>
+                            </div>
+                        </div>
+                        <div class="icon-box gb b">
+                            <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                            <div class="text">
+                                <div class="title">Solutions <i class="far fa-arrow-right"></i></div>
+                                <div class="link-fancy-dark  mb-1 ">Contract Manufacturing</div>
+                                <div class="link-fancy-dark mb-1">On-demand manufacturing</div>
+                                <div class="link-fancy-dark mb-1">Rapid prototyping</div>
+                            </div>
+                        </div>
+                        <div class="icon-box gb c">
+                            <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                            <div class="text">
+                                <div class="title">Additive manufacturing <i class="far fa-arrow-right"></i></div>
+                                <div class="link-fancy-dark mb-1">Design Studio</div>
+                                <div class="link-fancy-dark mb-1">Consulting</div>
+                            </div>
+                        </div>
+                        <div class="icon-box gb d">
+                            <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                            <div class="text">
+                                <div class="title">Inbam Gold <i class="far fa-arrow-right"></i></div>
+                                <div class="link-fancy-dark mb-1">Online 3d printing</div>
+                                <div class="link-fancy-dark mb-1">Consulting</div>
+                                <div class="link-fancy-dark mb-1">Design studio</div>
+                            </div>
+                        </div>
+                        <div class="bottom-container">
+                            Ready to dive in? <a href="/#services">More Details</a>
+                        </div>
+                        <div class="sub-menu-holder"></div>
+                    </div>
+                </div>
+
                 <li class="nav-item m-3">
                     <a
                             style="font-weight: 900"
