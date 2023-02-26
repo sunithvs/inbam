@@ -4,59 +4,51 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 
+country = ["Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla",
+           "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
+           "Bahrain", "Bangladesh", "Barbados", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia",
+           "Bosnia and Herzegovina", "Botswana", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam",
+           "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands",
+           "Central African Republic", "Chad", "Chile", "China", "Cocos (Keeling) Islands", "Colombia", "Comoros",
+           "Congo", "Democratic Republic of the Congo", "Cook Islands", "Costa Rica", "Côte d'Ivoire", "Croatia",
+           "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt",
+           "El Salvador", "Eritrea", "Estonia", "Ethiopia", "Faeroe Islands", "Fiji", "Finland", "France",
+           "French Guiana", "French Polynesia", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece",
+           "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana",
+           "Haiti", "Holy See", "Honduras", "Hong Kong Special Administrative Region of China", "Hungary", "Iceland",
+           "India", "Indonesia", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey",
+           "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Republic of Korea", "Kuwait", "Kyrgyzstan",
+           "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya",
+           "Liechtenstein", "Lithuania", "Luxembourg", "Macao Special Administrative Region of China",
+           "The former Yugoslav Republic of Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta",
+           "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico",
+           "Micronesia, Federated States of", "Republic of Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat",
+           "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia",
+           "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norfolk Island", "Northern Mariana Islands", "Norway",
+           "Oman", "Pakistan", "Palau", "Occupied Palestinian Territory", "Panama", "Papua New Guinea", "Paraguay",
+           "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Réunion", "Romania", "Rwanda",
+           "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino",
+           "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore",
+           "Slovakia", "Slovenia", "Solomon Islands", "South Africa", "Spain", "Sri Lanka", "Suriname",
+           "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Taiwan, Province of China",
+           "Tajikistan", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
+           "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "United Arab Emirates",
+           "United Kingdom of Great Britain and Northern Ireland", "United States of America",
+           "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu",
+           "Venezuela (Bolivarian Republic of)", "Viet Nam", "British Virgin Islands", "United States Virgin Islands",
+           "Wallis and Futuna Islands", "Yemen", "Zambia", "Zimbabwe",
+           ]
+
 
 # to store the delivery address
 class Address(models.Model):
+    address_label = models.CharField(max_length=30)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
+    country = models.CharField(max_length=100, choices=[(country, country) for country in country], default="India")
+    phone = models.CharField(max_length=10, validators=[MinValueValidator(Decimal('0.00'))])
 
     def __str__(self):
         return self.address
-
-
-# a model for an order of a 3d printing service oline
-class Order(models.Model):
-    valid_extensions = ['stl', 'STL', 'Stl', 'sTL', 'stL', 'sTl', 'StL', 'STl']
-    user = models.ForeignKey('auth_login.User', on_delete=models.CASCADE)
-
-    # the name of the order
-    name = models.CharField(max_length=200)
-    # the description of the order
-    description = models.TextField(blank=True, null=True)
-    # the date of the order
-    date = models.DateTimeField(auto_now_add=True)
-    # the price of the order
-    price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.00'))])
-    # the status of the order
-    status = models.CharField(max_length=200, choices=(
-        ('pending', 'Pending'),
-        ('in progress', 'In Progress'),
-        ('completed', 'Completed'),
-    ), default='pending')
-
-    # the file of the order
-    file = models.FileField(upload_to='uploads/')
-    delivery_date = models.DateTimeField(auto_now_add=True)
-    delivery_address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True,
-                                         related_name='order_delivery_address')
-    type = models.CharField(max_length=200, choices=(
-        ('metal', 'Metal'),
-        ("ornament", "Ornament"),
-        ('plastic', 'Plastic'),
-    ), default='plastic')
-    payment_status = models.CharField(max_length=200, choices=(
-        ('pending', 'Pending'),
-        ('paid', 'Paid'),
-    ), default='pending')
-
-    # the string representation of the order
-    def __str__(self):
-        return self.name
-
-    #     validate file extension
-    def clean(self):
-        if not self.file.name.endswith(tuple(self.valid_extensions)):
-            raise ValidationError(u'File not supported!')

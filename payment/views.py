@@ -3,7 +3,6 @@ import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
-from home.forms import OrderForm
 from django.contrib.auth.decorators import login_required
 
 # authorize razorpay client with API Keys.
@@ -14,7 +13,7 @@ razorpay_client = razorpay.Client(
 @login_required(login_url='/accounts/login/')
 def homepage(request):
     if request.method == 'POST':
-        form = OrderForm(request.POST, request.FILES)
+        form = False
         if form.is_valid():
             order = form.save()
             print("form saved")

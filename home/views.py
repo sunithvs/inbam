@@ -1,13 +1,12 @@
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from rest_framework import viewsets
-from rest_framework.response import Response
+from .permissions import IsAuthenticated, IsOwner
+
+from home.models import Address
+from home.serializer import AddressSerializer
 
 
-# from home.forms import OrderForm
-
-
-# index view
 class IndexView(TemplateView):
     template_name = 'home/index.html'
     service = [
@@ -51,17 +50,17 @@ class IndexView(TemplateView):
     def get(self, request, *args, **kwargs):
         return self.render_to_response(self.get_context_data())
 
-# class OrderViewSet(viewsets.ViewSet):
-#
-#     @staticmethod
-#     def create(request):
-#         form = OrderForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home:index')
-#         return Response({'form': form})
-#
-#     @staticmethod
-#     def list(request):
-#         form = OrderForm()
-#         return Response({'form': form})
+
+class AddressViewSet(viewsets.ModelViewSet):
+    serializer_class = AddressSerializer
+    queryset = Address.objects.all()
+    permission_classes = [IsAuthenticated, IsOwner]
+
+    def get_queryset(self):
+        return Address.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
