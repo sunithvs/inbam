@@ -7,7 +7,7 @@ from payment.views import razorpay_client
 from .forms import ObjectModelForm
 from .models import Order
 from home.forms import AddressForm
-from home.models import Address
+from home.models import Address, countries
 
 
 @login_required(login_url='/login/')
@@ -37,7 +37,7 @@ def checkout(request, order):
     order = Order.objects.filter(name=order, user=request.user).first()
     if not order:
         return render(request, template_name="404.html")
-    context = {"object": order.model, "order": order, }
+    context = {"object": order.model, "order": order, "countries": countries}
     address = Address.objects.filter(user=request.user).first()
     if address:
         context['address'] = address
@@ -48,7 +48,7 @@ def checkout(request, order):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            order.address = form.instance
+            order.delivery_address = form.instance
             order.price = 100
             currency = 'INR'
             razorpay_order = razorpay_client.order.create(dict(amount=order.price * 100,

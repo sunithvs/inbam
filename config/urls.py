@@ -44,6 +44,7 @@ urlpatterns = [
     path("", include("home.urls")),
     path("", include("printing.urls")),
     path("payment/", include("payment.urls")),
+    path("dashboard/", include("dashboard.urls")),
     path(settings.ADMIN_URL, admin.site.urls),
     re_path(r'swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
             name='schema-json'),
