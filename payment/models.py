@@ -8,7 +8,7 @@ class Transaction(models.Model):
     razorpay_payment_id = models.CharField(max_length=255)
     razorpay_order_id = models.CharField(max_length=255)
     razorpay_signature = models.CharField(max_length=255)
-    order = models.ForeignKey('home.Order', on_delete=models.CASCADE)
+    order = models.ForeignKey('printing.Order', on_delete=models.CASCADE)
     amount = models.FloatField()
     status = models.CharField(max_length=255, choices=(
         ('pending', 'Pending'),
