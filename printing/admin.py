@@ -16,7 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
     filter_horizontal = ()
     list_per_page = 25
     #     actions to change the status of the order
-    actions = ['make_pending', 'make_in_progress', 'make_completed']
+    actions = ['make_pending', 'make_in_progress', 'make_completed', 'download_model']
 
     # redirect to address admin page when clicking on the delivery address
     def get_delivery_address(self, obj):
@@ -43,7 +43,6 @@ class OrderAdmin(admin.ModelAdmin):
     class Meta:
         verbose_name_plural = "Orders"
         proxy = True
-
 
 #  upcoming orders
 
