@@ -21,7 +21,7 @@ from home import views
 urlpatterns = [
     # register index view
     path('', views.IndexView.as_view(), name='index'),
-    path('checkout.html', views.IndexView.as_view(), name='index'),
+    path('service/<str:service_name>/<str:type>', views.ServiceView.as_view(), name='service'),
 ]
 
 handler404 = 'home.views.error_404_view'
