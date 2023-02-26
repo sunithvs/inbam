@@ -2,11 +2,9 @@
 <style>
 
     .accordion {
-    --bs-accordion-btn-icon: url('http://127.0.0.1:8000/static/img/down.png') !important;
-    --bs-accordion-btn-active-icon: url('http://127.0.0.1:8000/static/img/up.png') !important
-    {#    --bs-accordion-btn-icon: url('{% static "img/down.png" %}') !important;#}
-    {#--bs-accordion-btn-active-icon: url('{% static "img/up.png" %}') !important#}
-}
+        --bs-accordion-btn-icon: url('http://127.0.0.1:8000/static/img/down.png') !important;
+        --bs-accordion-btn-active-icon: url('http://127.0.0.1:8000/static/img/up.png') !important{#    --bs-accordion-btn-icon: url('{% static "img/down.png" %}') !important;#}{#--bs-accordion-btn-active-icon: url('{% static "img/up.png" %}') !important#}
+    }
 
 </style>
 <nav
@@ -32,8 +30,6 @@
                 class="collapse navbar-collapse mt-4 mt-lg-0"
                 id="navbarSupportedContent"
         >
-
-
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item m-3">
                     <a
@@ -55,18 +51,19 @@
                 </li>
 
                 <div class="accordion mobile" id="services-accordion">
-                    <div class=" remove--border"  style="background: black; color: white;box-shadow: none;">
+                    <div class=" remove--border" style="background: black; color: white;box-shadow: none;">
                         <h2 class="accordion-header" id="services-heading">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#services-collapse" aria-expanded="false"
-                                    aria-controls="services-collapse"style="background: black; color: white; box-shadow: none;">
+                                    aria-controls="services-collapse"
+                                    style="background: black; color: white; box-shadow: none;">
                                 <a
-                            style="font-weight: 900"
-                            class="link-fancy link-fancy-light"
-                            aria-current="page"
-                            href="/#about"
-                    >Services</a
-                    >
+                                        style="font-weight: 900"
+                                        class="link-fancy link-fancy-light"
+                                        aria-current="page"
+                                        href="/#about"
+                                >Services</a
+                                >
                             </button>
                         </h2>
                         <div id="services-collapse" class="accordion-collapse collapse"
@@ -84,7 +81,8 @@
                                         </h2>
                                         <div id="collapse-one" class="accordion-collapse collapse"
                                              aria-labelledby="heading-one" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body" style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Online 3D printing
                                             </div>
                                         </div>
@@ -93,25 +91,29 @@
                                         <h2 class="accordion-header" id="heading-two">
                                             <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-two"
-                                                    aria-expanded="false" aria-controls="collapse-two"style="background: black; color: #00ffda;;box-shadow: none;">
+                                                    aria-expanded="false" aria-controls="collapse-two"
+                                                    style="background: black; color: #00ffda;;box-shadow: none;">
                                                 Solutions
                                             </button>
                                         </h2>
                                         <div id="collapse-two" class="accordion-collapse collapse"
                                              aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none;margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none;margin-left: 2em">
                                                 Contract Manufacturing
                                             </div>
                                         </div>
                                         <div id="collapse-two" class="accordion-collapse collapse"
                                              aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 On-Demand Manufacturing
                                             </div>
                                         </div>
                                         <div id="collapse-two" class="accordion-collapse collapse"
                                              aria-labelledby="heading-two" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Rapid Prototyping
                                             </div>
                                         </div>
@@ -120,19 +122,22 @@
                                         <h2 class="accordion-header" id="heading-three">
                                             <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-three"
-                                                    aria-expanded="false" aria-controls="collapse-three"style="background: black; color: #00ffda;;box-shadow: none;">
+                                                    aria-expanded="false" aria-controls="collapse-three"
+                                                    style="background: black; color: #00ffda;;box-shadow: none;">
                                                 Additive Manufacturing
                                             </button>
                                         </h2>
                                         <div id="collapse-three" class="accordion-collapse collapse"
                                              aria-labelledby="heading-three" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Design studio
                                             </div>
                                         </div>
                                         <div id="collapse-three" class="accordion-collapse collapse"
                                              aria-labelledby="heading-three" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Consulting
                                             </div>
                                         </div>
@@ -141,25 +146,29 @@
                                         <h2 class="accordion-header" id="heading-four">
                                             <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-four"
-                                                    aria-expanded="false" aria-controls="collapse-four"style="background: black; box-shadow: none; color: #FFD700;">
+                                                    aria-expanded="false" aria-controls="collapse-four"
+                                                    style="background: black; box-shadow: none; color: #FFD700;">
                                                 Inbam Gold
                                             </button>
                                         </h2>
                                         <div id="collapse-four" class="accordion-collapse collapse"
                                              aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Online 3D printing
                                             </div>
                                         </div>
                                         <div id="collapse-four" class="accordion-collapse collapse"
                                              aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Cosulting
                                             </div>
                                         </div>
                                         <div id="collapse-four" class="accordion-collapse collapse"
                                              aria-labelledby="heading-four" data-bs-parent="#multi-level-accordion">
-                                            <div class="accordion-body"style="background: black; color: white;box-shadow: none; margin-left: 2em">
+                                            <div class="accordion-body"
+                                                 style="background: black; color: white;box-shadow: none; margin-left: 2em">
                                                 Design Studio
                                             </div>
                                         </div>
