@@ -72,3 +72,45 @@ def error_404_view(request, exception):
 
 def error_500_view(request):
     return render(request, '500.html')
+
+
+class ServiceView(TemplateView):
+    template_name = 'home/service.html'
+    service = {
+        "direct-manufacturing": {
+            "online-3d-printing": {
+                "title": "Online 3d printing",
+                "description": "3D printing services, utilizing state-of-the-art technology and a team of experts to deliver accurate, functional, and aesthetically pleasing prototypes and finished products."
+                ,"about": "Using Imbam there is no minimum order quantity, from a single object to 10 000+ parts, you can 3D print the exact amount of parts you need. This is why additive manufacturing is particularly adapted to the creation of limited editions."
+            },
+        },
+        "solutions": {
+            "contract-manufacturing": {
+                "title": "Contract manufacturing",
+                "description": "We  offers contract manufacturing services to provide clients with a dependable and efficient solution for their component needs. Utilizing an optimized production process, Inbum delivers high-quality components in a timely and reliable manner."
+            },
+            "rapid-prototyping": {
+                "title": "Rapid Prototyping",
+                "description": "Inbum provides rapid prototyping services utilizing state-of-the-art 3D printing technology to deliver quick and accurate prototypes for testing and iteration. This allows clients to streamline their design process and bring their product to market faster."
+
+            },
+            "online-3d-printing": {
+                "title": "Online 3d printing",
+                "description": "3D printing services, utilizing state-of-the-art technology and a team of experts to deliver accurate, functional, and aesthetically pleasing prototypes and finished products."
+            },
+
+        }}
+
+    def get_context_data(self, service_name, service_type, **kwargs):
+        context = super(ServiceView, self).get_context_data(**kwargs)
+        context['service'] = self.service.get(service_name).get(service_type)
+        context["gold"] = service_name == "inbam-gold"
+        return context
+
+    def get(self, request, *args, **kwargs):
+        service_name = kwargs.get('service_name')
+        service_type = kwargs.get('type')
+        print(service_name)
+        if service_name not in self.service or service_type not in self.service.get(service_name):
+            return redirect('index')
+        return self.render_to_response(self.get_context_data(service_name, service_type))
