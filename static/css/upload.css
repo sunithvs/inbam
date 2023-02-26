@@ -81,7 +81,7 @@ body {
 	cursor: pointer;
 }
 .file-block {
-	color: #f7fff7;
+	color: #000000;
 	background-color: #00ffda;
   	transition: all 1s;
 	width: 390px;
