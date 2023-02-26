@@ -20,6 +20,18 @@ nav {
 
 
 
+nav .mobile {
+    display: none;
+}
+
+
+@media (max-width: 991px) {
+    nav .mobile {
+        display: block;
+    }
+}
+
+
 nav .menu-item {
     display: block;
     color: white;
@@ -43,15 +55,6 @@ nav .menu-item {
 }
 
 
-@media (max-width: 991px) {
-    nav .mobile {
-        display: block;
-    }
-}
-
-nav .mobile {
-    display: none;
-}
 
 
 

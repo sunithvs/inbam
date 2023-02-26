@@ -6,12 +6,30 @@
 
 {% block contents %}
 
+    <style>
+    {% if gold %}
+        .display-4 {
+            color: #A38A00 !important;
+        }
+        .gold{
+        color: #A38A00 !important;
+        }
+
+        .btn-light{
+            --bs-btn-bg: #A38A00 !important;
+            --bs-btn-border-color: #A38A00 !important;
+        }
+    {% endif %}
+
+
+    </style>
 
     <body
             class="bg-black text-white mt-0"
             data-bs-spy="scroll"
             data-bs-target="#navScroll"
-            style="background-color: {% if gold %} #f5f5f5 {% else %} #000000 {% endif %}"
+
+
     >
     <main>
         {% include "components/navbar.html" %}
@@ -30,17 +48,17 @@
                         class="row d-flex align-items-center justify-content-center py-vh-5"
                 >
                     <div class="col-12 col-xl-10">
-                        <h1 style="color: #00ffda" class="display-huge mt-3 mb-3 lh-1">
+                        <h1 style="color: #00ffda" class="display-huge gold mt-3 mb-3 lh-1">
                             {{ service.title }}
                         </h1>
                     </div>
                     <div class="col-12 col-xl-8">
                         <p class="lead">
-                            {{ service.description}}
+                            {{ service.description }}
                         </p>
                     </div>
-                    <div class="col-12 text-center">
-                        <a href="#" class="btn btn-xl btn-light"
+                    <div class="col-12 text-center ">
+                        <a href="#" class="btn btn-xl btn-light "
                         >Upload Design
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +80,6 @@
         </div>
 
 
-
         <div id="about" style="min-height: 100vh !important" class="bg-dark">
             <div class="container px-vw-5 py-vh-5">
                 <div class="row d-flex align-items-center">
@@ -81,24 +98,8 @@
                             <!-- <span class="fs-6 fw-light">/day</span> -->
                         </h2>
                         <p style="text-align: left;" class="lead">
-                            {{ service.about}}
+                            {{ service.about }}
                         </p>
-                        <a href="#" class="btn btn-xl btn-light"
-                        >Sign up
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    fill="currentColor"
-                                    class="bi bi-arrow-right"
-                                    viewBox="0 0 16 16"
-                            >
-                                <path
-                                        fill-rule="evenodd"
-                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                                />
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -108,7 +109,7 @@
             <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
                 <div class="row gx-5">
                     <div class="p-5 pt-0 mt-5" data-aos="fade">
-                        <span class="h5 fw-lighter">What We Provide</span>
+                        <span class="h5 fw-lighter">MORE</span>
                         <h2 class="display-4">Services</h2>
                     </div>
                     {% for service in services %}
