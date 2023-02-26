@@ -57,11 +57,11 @@ let isAdvancedUpload = function() {
                     if (width >= 390) {
                       clearInterval(id);
                       uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
-                      location.href = 'preview.html'
+             
                     } else {
                       width += 5;
                       progressBar.style.width = width + "px";
-                      location.href = 'preview.html'
+   
                     }
               }
             }
@@ -111,14 +111,14 @@ let isAdvancedUpload = function() {
       });
   }
   
-  removeFileButton.addEventListener("click", () => {
-      uploadedFile.style.cssText = "display: none;";
-      fileInput.value = '';
-      uploadIcon.innerHTML = 'file_upload';
-      dragDropText.innerHTML = 'Drag & drop any file here';
-      document.querySelector(".label").innerHTML = `or <span class="browse-files"><span class="browse-files-text">browse file</span> <span>from device</span><br><input type="file" class="default-file-input"/> </span>`;
-      uploadButton.innerHTML = `Upload`;
-  });
+//   removeFileButton.addEventListener("click", () => {
+//       uploadedFile.style.cssText = "display: none;";
+//       fileInput.value = '';
+//       uploadIcon.innerHTML = 'file_upload';
+//       dragDropText.innerHTML = 'Drag & drop any file here';
+//       document.querySelector(".label").innerHTML = `or <span class="browse-files"><span class="browse-files-text">browse file</span> <span>from device</span><br><input type="file" class="default-file-input"/> </span>`;
+//       uploadButton.innerHTML = `Upload`;
+//   });
 
 
 
