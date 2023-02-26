@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "auth_login",
     "printing",
     "payment",
+    "dashboard",
 
 ]
 
