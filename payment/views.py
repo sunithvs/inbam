@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
+
+from printing.models import Order
 
 # authorize razorpay client with API Keys.
 razorpay_client = razorpay.Client(
@@ -40,6 +42,7 @@ def homepage(request):
 # and it won't have the csrf token.
 @csrf_exempt
 def payment_handler(request):
+    print("payment handler called")
     # only accept POST request.
     if request.method == "POST":
         try:
@@ -56,24 +59,26 @@ def payment_handler(request):
             # verify the payment signature.
             result = razorpay_client.utility.verify_payment_signature(
                 params_dict)
+            order = Order.objects.filter(razorpay_order_id=razorpay_order_id).first()
             if result is not None:
-                amount = 20000  # Rs. 200
+                amount = int(order.price) * 100
+                print(f"{int(amount) = }")
                 try:
 
                     # capture the payment
                     razorpay_client.payment.capture(payment_id, amount)
 
                     # render success page on successful capture of payment
-                    return render(request, 'paymentsuccess.html')
+                    return redirect('/dashboard/orders')
                 except Exception as e:
                     print(e)
                     # if there is an error while capturing payment.
-                    return render(request, 'paymentfail.html')
+                    return render(request, 'payment/fail.html')
             else:
                 # if signature verification fails.
-                return render(request, 'paymentfail.html')
+                return render(request, 'payment/fail.html')
         except Exception as e:
-            print(e)
+            print(f"{e =}")
             # if we don't find the required parameters in POST data
             return HttpResponseBadRequest()
     else:

@@ -81,6 +81,7 @@ class Order(models.Model):
         ('pending', 'Pending'),
         ('paid', 'Paid'),
     ), default='pending')
+    razorpay_order_id = models.CharField(max_length=200, null=True, blank=True)
 
     # the string representation of the order
     def __str__(self):

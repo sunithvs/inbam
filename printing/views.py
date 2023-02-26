@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
 from auth_login.models import User
+from config.settings import RAZOR_KEY_ID, DEPLOYMENT_URL
+from payment.views import razorpay_client
 from .forms import ObjectModelForm
 from .models import Order
 from home.forms import AddressForm
@@ -47,10 +49,21 @@ def checkout(request, order):
             form.instance.user = request.user
             form.save()
             order.address = form.instance
-            order.price = 1000
+            order.price = 100
+            currency = 'INR'
+            razorpay_order = razorpay_client.order.create(dict(amount=order.price * 100,
+                                                               currency=currency,
+                                                               payment_capture='0'))
+            # order id of newly created order.
+            razorpay_order_id = razorpay_order['id']
+            order.razorpay_order_id = razorpay_order_id
             order.save()
-
-            return redirect(f'/dashboard/orders/')
+            callback_url = DEPLOYMENT_URL + 'payment/callback/'
+            # we need to pass these details to frontend.
+            context = {'razorpay_order_id': razorpay_order_id, 'razorpay_merchant_key': RAZOR_KEY_ID,
+                       'razorpay_amount': order.price, 'currency': currency, 'callback_url': callback_url,
+                       "order": order}
+            return render(request, 'payment/index.html', context=context)
         else:
             print(form.errors)
             context['form'] = form
