@@ -76,7 +76,7 @@ class Order(models.Model):
         ('metal', 'Metal'),
         ("ornament", "Ornament"),
         ('plastic', 'Plastic'),
-    ), default='plastic')
+    ), default='metal')
     payment_status = models.CharField(max_length=200, choices=(
         ('pending', 'Pending'),
         ('paid', 'Paid'),

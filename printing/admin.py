@@ -8,7 +8,7 @@ from .models import Order
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    # list_display = ('name', 'date', 'price', 'status', 'file', 'delivery_date', 'delivery_address')
+    list_display = ['name', 'date', 'price', 'status', 'delivery_date', 'delivery_address']
     list_filter = ('status', 'date')
     search_fields = ('name', 'description', 'status', 'file')
     ordering = ('-date',)

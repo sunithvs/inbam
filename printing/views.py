@@ -48,7 +48,7 @@ def checkout(request, order):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            order.address = form.instance
+            order.delivery_address = form.instance
             order.price = 100
             currency = 'INR'
             razorpay_order = razorpay_client.order.create(dict(amount=order.price * 100,
