@@ -22,3 +22,9 @@ def upload(request):
     else:
         context['form'] = ObjectModelForm()
     return render(request, template_name="printing/upload.html", context=context)
+
+
+@login_required(redirect_field_name="/login/")
+@ensure_csrf_cookie
+def checkout(request):
+    return render(request, "printing/checkout.html")

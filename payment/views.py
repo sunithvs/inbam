@@ -33,7 +33,7 @@ def homepage(request):
     return HttpResponseBadRequest()
 
 
-# checkout class view for handling checkout with authentication.
+# checkout.html class view for handling checkout.html with authentication.
 
 # we need to csrf_exempt this url as
 # POST request will be made by Razorpay
