@@ -35,7 +35,7 @@ def pending_orders(request):
         'orders': orders
     }
 
-    return render(request, 'dashboard/pendingorder.html', context)
+    return render(request, 'dashboard/order.html', context)
 
 
 @login_required(login_url='/login/')
@@ -44,4 +44,4 @@ def completed_orders(request):
     context = {
         'orders': orders
     }
-    return render(request, 'dashboard/completedorder.html', context)
+    return render(request, 'dashboard/order.html', context)

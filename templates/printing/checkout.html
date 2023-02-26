@@ -158,8 +158,9 @@
                                     required
                                     name="country"
                             >
-                                <option value="">Choose...</option>
-                                <option>United States</option>
+                                {% for country in countries %}
+                                    <option value="{{ country }}">{{ country }}</option>
+                                {% endfor %}
                             </select>
                             <div class="invalid-feedback">
                                 Please select a valid country.
