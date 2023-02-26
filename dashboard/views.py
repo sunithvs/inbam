@@ -16,7 +16,7 @@ def dashboard(request):
 
 @csrf_exempt
 @login_required(login_url='/login/')
-def edit_profile(request):
+def profile(request):
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -25,7 +25,7 @@ def edit_profile(request):
     else:
         form = UserChangeForm(instance=request.user)
         args = {'form': form}
-        return render(request, 'dashboard/edit_profile.html', args)
+        return render(request, 'dashboard/profile.html', args)
 
 
 @login_required(login_url='/login/')
@@ -34,7 +34,8 @@ def pending_orders(request):
     context = {
         'orders': orders
     }
-    return render(request, 'dashboard/orders.html')
+
+    return render(request, 'dashboard/pendingorder.html', context)
 
 
 @login_required(login_url='/login/')
@@ -43,4 +44,4 @@ def completed_orders(request):
     context = {
         'orders': orders
     }
-    return render(request, 'dashboard/orders.html')
+    return render(request, 'dashboard/completedorder.html', context)
