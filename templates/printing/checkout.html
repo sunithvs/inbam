@@ -55,7 +55,8 @@
 
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Billing address</h4>
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" action="" method="post">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">First name</label>
@@ -66,6 +67,7 @@
                                     placeholder=""
                                     value=""
                                     required
+                                    name="first_name"
                             />
                             <div class="invalid-feedback">
                                 Valid first name is required.
@@ -80,28 +82,45 @@
                                     placeholder=""
                                     value=""
                                     required
+                                    name="last_name"
+
                             />
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
                         </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="email"
-                        >Email <span class="text-muted">(Optional)</span></label
-                        >
-                        <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="you@example.com"
-                        />
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="email"
+                            >Email <span class="text-muted">(Optional)</span></label
+                            >
+                            <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="you@example.com"
+                                    name="email"
+                            />
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="phone_number"
+                            >Phone number <span class="text-muted">(Optional)</span></label
+                            >
+                            <input
+                                    type="tel"
+                                    class="form-control"
+                                    id="phone_number"
+                                    name="phone_number"
+                            />
+                            <div class="invalid-feedback">
+                                Please enter phone_number for shipping updates.
+                            </div>
                         </div>
                     </div>
-
                     <div class="mb-3">
                         <label for="address">Address</label>
                         <input
@@ -110,6 +129,7 @@
                                 id="address"
                                 placeholder="1234 Main St"
                                 required
+                                name="address_line_1"
                         />
                         <div class="invalid-feedback">
                             Please enter your shipping address.
@@ -125,6 +145,7 @@
                                 class="form-control"
                                 id="address2"
                                 placeholder="Apartment or suite"
+                                name="address_line_2"
                         />
                     </div>
 
@@ -135,6 +156,7 @@
                                     class="custom-select d-block w-100"
                                     id="country"
                                     required
+                                    name="country"
                             >
                                 <option value="">Choose...</option>
                                 <option>United States</option>
@@ -149,6 +171,7 @@
                                     class="custom-select d-block w-100"
                                     id="state"
                                     required
+                                    name="state"
                             >
                                 <option value="">Choose...</option>
                                 <option>California</option>
@@ -165,6 +188,7 @@
                                     id="zip"
                                     placeholder=""
                                     required
+                                    name="zip_code"
                             />
                             <div class="invalid-feedback">Zip code required.</div>
                         </div>
@@ -175,6 +199,7 @@
                                 type="checkbox"
                                 class="custom-control-input"
                                 id="same-address"
+
                         />
                         <label class="custom-control-label" for="same-address"
                         >Shipping address is the same as my billing address</label
@@ -199,7 +224,7 @@
         </div>
 
         <footer class="pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2021 - 2045 Company Name</p>
+            <p class="mb-1">&copy; 2021 - 2045 Inbam</p>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>

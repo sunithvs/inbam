@@ -17,8 +17,8 @@ def upload(request):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            Order.objects.create(user=request.user, model=form.instance)
-            return redirect('/orders/' + form.instance.name)
+            order = Order.objects.create(user=request.user, model=form.instance)
+            return redirect('/checkout/' + order.name)
         else:
             context['form'] = form
     else:
@@ -42,14 +42,17 @@ def checkout(request, order):
 
     if request.method == "POST":
         form = AddressForm(request.POST)
+        print(request.POST)
         if form.is_valid():
             form.instance.user = request.user
             form.save()
             order.address = form.instance
+            order.price = 1000
             order.save()
 
-            return redirect('dashboard/orders/')
+            return redirect(f'/dashboard/orders/')
         else:
+            print(form.errors)
             context['form'] = form
     else:
         context['form'] = AddressForm()

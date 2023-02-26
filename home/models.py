@@ -48,11 +48,10 @@ class Address(models.Model):
     email = models.EmailField(max_length=100)
     address_line_1 = models.CharField(max_length=100)
     address_line_2 = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=100)
     country = models.CharField(max_length=100, choices=[(country, country) for country in country], default="India")
-    phone_number = models.CharField(max_length=10, validators=[MinValueValidator(Decimal('0.00'))])
+    phone_number = models.CharField(max_length=12)
 
     def __str__(self):
         return self.address
