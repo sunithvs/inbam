@@ -6,5 +6,5 @@ from .views import upload, checkout
 
 urlpatterns = [
     path("upload/", upload, name="upload"),
-    path("checkout/", checkout, name="checkout")
+    path("checkout/<str:order>/", checkout, name="checkout"),
 ]

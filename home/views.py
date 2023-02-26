@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 from .permissions import IsAuthenticated, IsOwner
@@ -64,3 +64,11 @@ class AddressViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
+
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
+
+
+def error_500_view(request):
+    return render(request, '500.html')

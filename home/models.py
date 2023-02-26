@@ -42,13 +42,17 @@ country = ["Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samo
 
 # to store the delivery address
 class Address(models.Model):
-    address_label = models.CharField(max_length=30)
-    address = models.CharField(max_length=100)
+    user = models.ForeignKey('auth_login.User', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    address_line_1 = models.CharField(max_length=100)
+    address_line_2 = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=100)
     country = models.CharField(max_length=100, choices=[(country, country) for country in country], default="India")
-    phone = models.CharField(max_length=10, validators=[MinValueValidator(Decimal('0.00'))])
+    phone_number = models.CharField(max_length=10, validators=[MinValueValidator(Decimal('0.00'))])
 
     def __str__(self):
         return self.address

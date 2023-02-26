@@ -53,7 +53,6 @@ class ObjectModel(models.Model):
 # a model for an order of a 3d printing service oline
 class Order(models.Model):
     user = models.ForeignKey('auth_login.User', on_delete=models.CASCADE)
-
     # the name of the order
     name = models.CharField(max_length=200, default=create_order_id)
     # the description of the order

@@ -155,6 +155,9 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+# 404 and 500 error pages
+handler404 = 'home.views.error_404_view'
+handler500 = 'home.views.error_500_view'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type

@@ -23,3 +23,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('checkout.html', views.IndexView.as_view(), name='index'),
 ]
+
+handler404 = 'home.views.error_404_view'
+handler500 = 'home.views.error_500_view'
+
