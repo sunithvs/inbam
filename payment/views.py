@@ -66,9 +66,8 @@ def payment_handler(request):
 
                     # capture the payment
                     razorpay_client.payment.capture(payment_id, amount)
-
                     # render success page on successful capture of payment
-                    return redirect('/dashboard/orders')
+                    return redirect('/dashboard/orders/pending/')
                 except Exception as e:
                     print(e)
                     # if there is an error while capturing payment.
