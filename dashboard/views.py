@@ -11,8 +11,7 @@ from printing.models import Order
 # edit user profile
 @login_required(login_url='/login/')
 def dashboard(request):
-
-    return render(request, 'dashboard/dashboard.html')
+    return render(request, 'dashboard/index.html')
 
 
 @csrf_exempt
