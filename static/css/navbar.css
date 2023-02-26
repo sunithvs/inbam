@@ -18,15 +18,7 @@ nav {
     top: 3em;
 }
 
-nav .mobile {
-    display: none;
-}
 
-@media (max-width: 991px) {
-    nav .mobile {
-        display: block;
-    }
-}
 
 nav .menu-item {
     display: block;
@@ -49,6 +41,19 @@ nav .menu-item {
         display: none;
     }
 }
+
+
+@media (max-width: 991px) {
+    nav .mobile {
+        display: block;
+    }
+}
+
+nav .mobile {
+    display: none;
+}
+
+
 
 .accordion-item {
     border: none !important;
