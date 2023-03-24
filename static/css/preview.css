@@ -1,0 +1,29 @@
+input {
+    background-color: #000 !important; 
+    color: #FAFAFA !important;
+  }
+
+  /* make place holder color white for all browsers */
+    ::-webkit-input-placeholder {
+        color: #FAFAFA !important;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: #FAFAFA !important;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: #FAFAFA  !important;
+    }
+    :-ms-input-placeholder {
+        color: #FAFAFA !important;
+    }
+
+
+  input:focus {
+    border-color: #FAFAFA !important;
+    color: #FAFAFA  !important;
+  }
+
+  select {
+    background-color: #000 !important;
+    color: #FAFAFA !important;
+  }
