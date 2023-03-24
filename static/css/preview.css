@@ -34,3 +34,7 @@ input {
     color: #FAFAFA  !important;
     box-shadow: 0 0 0 0.2rem #00ffd962 !important;
   }
+
+  .header {
+    color: #00ffda !important;
+  }
