@@ -3,9 +3,9 @@
 +{% load static %}
 
 {% block contents %}
-<main class="h-full overflow-y-auto">
+<main style="background-color: #212529;" class="h-full overflow-y-auto">
     <div class="container px-6 mx-auto grid">
-        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        <h2 style="color: #00ffda;" class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Profile
         </h2>
 
@@ -72,7 +72,7 @@
                 }
 
             </script>
-            <form action="" method="post">
+            <form style="background-color: #212529;" action="" method="post">
                 {% csrf_token %}
                 <table class="profile-table">
                     <tr class="profile-table-tr">
@@ -83,7 +83,7 @@
                                     <input type="file" id="fileToUpload" style="visibility:hidden;"
                                            accept=".png,.jpg,jpeg,.PNG,.JPEG"
                                            name="fileToUpload"
-                                           onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                           onchange='document.getElementById("blah").src = window.URL.createObjectURL(this.files[0])'>
                                 </label>
                                 <img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
                             </section>
@@ -93,8 +93,8 @@
 
                             <table class="profile-details-table">
                                 <tr>
-                                    <i class="fa fa-edit fa_edit" id="edit1" onclick="onEdit()"></i>
-                                    <i class="fa fa-check fa_edit" style="display:none;" id="check1"
+                                    <i class="fa fa-edit fa_edit mr-3" id="edit1" onclick="onEdit()"></i>
+                                    <i class="fa fa-check fa_edit mr-3" style="display:none;" id="check1"
                                        onclick="onSave()"></i>
                                 </tr>
                                 <tr>
