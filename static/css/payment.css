@@ -1,0 +1,132 @@
+body{
+    background-color: black;
+    margin: 0 !important;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    max-width: 360px;
+    min-height: 400px;
+    margin: 60px auto;
+    border-radius: 10px;
+    background: #212529;
+    box-shadow: 0px 10px 20px 0px #58585877;
+    color: #fff;
+}
+.card .card-header {
+    width: 100%;
+    height: 156px;
+    border-radius: 10px 10px 0px 0px;
+}
+.card .card-header img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+.card .card-body {
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card .card-body .card-title {
+    width: 100%;
+    font-weight: 900;
+    color: var(--dark-blue);
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.card .card-body .card-text {
+    width: 100%;
+    color: var(--desaturated-blue);
+    text-align: center;
+    line-height: 25px;
+    padding: 15px 0px;
+    box-sizing: border-box;
+}
+.card .card-body .card-plan {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 15px;
+    background: var(--very-pale-blue);
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.card .card-body .card-plan .card-plan-text {
+    flex-grow: 6;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+.card .card-body .card-plan .card-plan-text .card-plan-title {
+    color: var(--dark-blue);
+    font-weight: 900;
+    font-size: 14px;
+}
+.card .card-body .card-plan .card-plan-text .card-plan-price {
+    color: var(--desaturated-blue);
+    font-size: 14px;
+}
+.card .card-body .card-plan .card-plan-link {
+    flex-grow: 1;
+}
+.card .card-body .card-plan .card-plan-link a {
+    color: var(--bright-blue);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.card .card-body .card-plan .card-plan-link a:hover {
+    color: #00ffda;
+    text-decoration: none;;
+}
+.card .card-body .card-payment-button {
+    padding: 25px 0px 15px;
+    box-sizing: border-box;
+}
+.card .card-body .card-payment-button button {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    background: #00ffda;
+    color: black;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card .card-body .card-payment-button button:hover {
+    background: #fff;
+}
+.card .card-body .card-cancel-button {
+    padding: 15px 0px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.card .card-body .card-cancel-button a {
+    width: 100%;
+    border: 0;
+    background: none;
+    color: white;
+    /* font-weight: 900; */
+    text-decoration: none;
+    cursor: pointer;
+}
+.card .card-body .card-cancel-button a:hover {
+    color: #00ffda;
+}
