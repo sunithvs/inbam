@@ -1,0 +1,45 @@
+input {
+    background-color: #000 !important; 
+    color: #FAFAFA !important;
+  }
+
+  /* make place holder color white for all browsers */
+    ::-webkit-input-placeholder {
+        color: #fafafabc !important;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: #fafafabc !important;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: #fafafabc  !important;
+    }
+    :-ms-input-placeholder {
+        color: #fafafabc !important;
+    }
+
+
+  input:focus {
+    border-color: #FAFAFA !important;
+    color: #FAFAFA  !important;
+    box-shadow: 0 0 0 0.2rem #00ffd962 !important;
+  }
+
+  select {
+    background-color: #000 !important;
+    color: #FAFAFA !important;
+  }
+
+  select:focus {
+    border-color: #FAFAFA !important;
+    color: #FAFAFA  !important;
+    box-shadow: 0 0 0 0.2rem #00ffd962 !important;
+  }
+
+  .header {
+    color: #00ffda !important;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }

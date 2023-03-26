@@ -30,7 +30,7 @@ function STLViewer(elem, model) {
     controls.dampingFactor = 0.1;
     controls.enableZoom = false;
     controls.enablePan = false;
-    controls.autoRotate = true;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = .75;
 
     var scene = new THREE.Scene();
@@ -38,7 +38,7 @@ function STLViewer(elem, model) {
     scene.add(new THREE.HemisphereLight(0xffffff, 0x080820, 1.5));
 
     (new THREE.STLLoader()).load(model, function (geometry) {
-        var material = new THREE.MeshPhongMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
+        var material = new THREE.MeshPhongMaterial({ color: 0x5d5d5d, specular: 100, shininess: 100 });
         var mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 

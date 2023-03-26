@@ -17,26 +17,23 @@
     <link rel="stylesheet" href="{% static "css/preview.css" %}"/>
 </head>
 <body>
-<main class="bg-dark text-white">
+<main class="bg-black text-white">
     <!-- DEMO HTML -->
-    <div class="container bg-dark">
+    <div class="container pb-5">
         <div class="py-5 text-center">
-            <h2>Preview & Checkout</h2>
+            <h2 class="header">Preview & Checkout</h2>
         </div>
-
-        <!-- 3d preview  -->
-        <div style="height: 500px; " class="stlviewer" data-src="{{ object.file.url }}"></div>
-        <!-- end 3d preview  -->
-
         <div class="row">
-            <div class="col-md-4 order-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">Your cart</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
-                </h4>
+            <div class="col-md-4 order-md-2 mb-4    ">
                 <ul class="list-group mb-3">
+                    <!-- 3d preview  -->
+                    <div style="height: 500px;background-color: rgb(163, 173, 184);" 
+                        class="stlviewer list-group-item d-flex justify-content-between lh-condensed" 
+                        data-src="{{ object.file.url }}">
+                    </div>
+                    <!-- end 3d preview  -->
                     <li
-                            class="list-group-item d-flex justify-content-between lh-condensed"
+                            class="list-group-item d-flex justify-content-between lh-condensed bg-dark text-white"
                     >
                         <div>
                             <h6 class="my-0">Quantity</h6>
@@ -45,7 +42,7 @@
                         <span>0</span>
                         <span>+</span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between bg-dark text-white">
                         <span>Total (INR)</span>
                         <strong>₹ 2000</strong>
                     </li>
@@ -62,7 +59,7 @@
                             <label for="firstName">First name</label>
                             <input
                                     type="text"
-                                    class="form-control"
+                                    class="form-control"    
                                     id="firstName"
                                     placeholder=""
                                     value=""
@@ -93,7 +90,7 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="email"
-                            >Email <span class="text-muted">(Optional)</span></label
+                            >Email</label
                             >
                             <input
                                     type="email"
@@ -108,7 +105,7 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="phone_number"
-                            >Phone number <span class="text-muted">(Optional)</span></label
+                            >Phone number</label
                             >
                             <input
                                     type="tel"
@@ -153,11 +150,12 @@
                         <div class="col-md-5 mb-3">
                             <label for="country">Country</label>
                             <select
-                                    class="custom-select d-block w-100"
+                                    class="form-select d-block w-100"
                                     id="country"
                                     required
                                     name="country"
                             >
+                                <option value="">Choose...</option>
                                 {% for country in countries %}
                                     <option value="{{ country }}">{{ country }}</option>
                                 {% endfor %}
@@ -169,7 +167,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="state">State</label>
                             <select
-                                    class="custom-select d-block w-100"
+                                    class="form-select d-block w-100"
                                     id="state"
                                     required
                                     name="state"
@@ -217,21 +215,12 @@
                         >
                     </div>
                     <hr class="mb-4"/>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">
+                    <button style="background-color: #00ffda; color: black;" class="btn btn-primary btn-lg btn-block" type="submit">
                         Continue to checkout
                     </button>
                 </form>
             </div>
         </div>
-
-        <footer class="pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2021 - 2045 Inbam</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
     </div>
     <!-- End Demo HTML -->
 </main>
@@ -241,7 +230,6 @@
     function showPreview(event) {
         if (event.target.files.length > 0) {
             var src = URL.createObjectURL(event.target.files[0]);
-            console.log(src);
             var preview = document.getElementById("3d");
             let block = `<div class="stlviewer" data-src="${src}"></div>`;
             preview.innerHTML = block;
