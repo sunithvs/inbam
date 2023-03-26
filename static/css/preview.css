@@ -38,3 +38,8 @@ input {
   .header {
     color: #00ffda !important;
   }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
