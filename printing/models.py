@@ -64,10 +64,11 @@ class Order(models.Model):
                                 default=0.00)
     # the status of the order
     status = models.CharField(max_length=200, choices=(
+        ("not started", "not started"),
         ('pending', 'Pending'),
         ('in progress', 'In Progress'),
         ('completed', 'Completed'),
-    ), default='pending')
+    ), default='not started')
     model = models.ForeignKey(ObjectModel, on_delete=models.CASCADE)
     delivery_date = models.DateTimeField(auto_now_add=True)
     delivery_address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True,
