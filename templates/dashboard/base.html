@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Inbam Dashboard</title>
+    <title>inbam Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
     <link rel="stylesheet" href="{% static "css/tailwind.output.css" %}"/>
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{% static "js/dashboard/init-alpine.js" %} "></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/>
@@ -15,6 +17,9 @@
     <script src="{% static "js/dashboard/charts-lines.js" %} " defer></script>
     <script src="{% static "js/dashboard/charts-pie.js" %} " defer></script>
     <link rel="stylesheet" href="{% static "css/dashboard.css" %} "/>
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined"
+          rel="stylesheet">
 
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,7 +33,7 @@
     <aside style="background-color: black;" class="z-20 hidden w-64 overflow-y-auto md:block flex-shrink-0">
         <div class="py-4">
             <a style="color: #00ffda;" class="ml-6 text-lg font-bold" href="/">
-                Inbam
+                inbam
             </a>
 
             <ul class="mt-6">
@@ -116,7 +121,7 @@
            @keydown.escape="closeSideMenu">
         <div class="py-4 text-gray-400">
             <a style="color: #00ffda;" class="ml-6 text-lg font-bold" href="#">
-                Inbam
+                inbam
             </a>
             <ul class="mt-6">
                 <li class="relative px-6 py-3">
