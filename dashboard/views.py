@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
@@ -18,14 +19,12 @@ def dashboard(request):
 @login_required(login_url='/login/')
 def profile(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('/dashboard/')
-    else:
-        form = UserChangeForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'dashboard/profile.html', args)
+        user = request.user
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.email = request.POST['email']
+        user.save()
+        return HttpResponseRedirect('/dashboard/profile')
 
 
 @login_required(login_url='/login/')

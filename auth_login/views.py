@@ -8,10 +8,10 @@ from .models import User
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import csrf_exempt
 
 
-@ensure_csrf_cookie
+@csrf_exempt
 def signin(request):
     context1 = {}
     pprint(request.META['QUERY_STRING'])
@@ -33,7 +33,7 @@ def signin(request):
     return render(request, template_name="account/login.html", context=context1)
 
 
-@ensure_csrf_cookie
+@csrf_exempt
 def signup(request):
     context1 = {}
     if request.method == "POST":

@@ -12,28 +12,6 @@ razorpay_client = razorpay.Client(
     auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 
 
-@login_required(login_url='/accounts/login/')
-def homepage(request):
-    if request.method == 'POST':
-        form = False
-        if form.is_valid():
-            order = form.save()
-            print("form saved")
-            currency = 'INR'
-            razorpay_order = razorpay_client.order.create(dict(amount=order.price,
-                                                               currency=currency,
-                                                               payment_capture='0'))
-            # order id of newly created order.
-            razorpay_order_id = razorpay_order['id']
-            callback_url = 'http://localhost:8000/payment/callback/'
-            # we need to pass these details to frontend.
-            context = {'razorpay_order_id': razorpay_order_id, 'razorpay_merchant_key': settings.RAZOR_KEY_ID,
-                       'razorpay_amount': order.price, 'currency': currency, 'callback_url': callback_url,
-                       "order": order}
-
-            return render(request, 'payment/index.html', context=context)
-    return HttpResponseBadRequest()
-
 
 # checkout.html class view for handling checkout.html with authentication.
 
