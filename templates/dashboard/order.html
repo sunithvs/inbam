@@ -3,6 +3,7 @@
 +{% load static %}
 
 {% block contents %}
+
     <main class="h-full overflow-y-auto">
         <div class="container px-6 mx-auto grid">
 
@@ -17,32 +18,31 @@
             {% endif %}
 
             <div class="cards-section d-flex align-items-center justify-content-center">
-
                 {% for order in orders %}
                     <div class="card my-5" style="margin:10px 0">
                         <table class="my-5">
-                            <tr class="bg-teal-100 dark:bg-gray-800">
+                            <tr>
                                 <td class="product_img">
                                     <img src="https://images.unsplash.com/photo-1610925699730-6ee9612c557c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                                          alt="img" width="350px">
                                 </td>
-                                <td class="">
+                                <td style="display: flex; justify-content: center; align-items: center;">
                                     <ul class="">
 
                                         <li class="text-gray-700 dark:text-gray-200"
-                                            style="margin-bottom: 5px; font-size: 15px;">Order ID: {{ order.name }}
+                                            style="margin-bottom: 5px; font-size: 18px; font-weight: 900;">  Order ID: {{ order.name }}
                                         </li>
                                         <li class="text-gray-700 dark:text-gray-200"
-                                            style="margin-bottom: 5px; font-size: 15px;">Order
-                                            Date: {{ order.date }}
+                                            style="margin-bottom: 5px; font-size: 12px;"><b style="font-size: 15px !important;">Order
+                                            Date:</b> {{ order.date }}
                                         </li>
                                         <li class="text-gray-700 dark:text-gray-200"
-                                            style="margin-bottom: 5px; font-size: 15px;">Order
-                                            Status: {{ order.status }}
+                                            style="margin-bottom: 5px; font-size: 15px;"><b>Order
+                                            Status:</b> {{ order.status }}
                                         </li>
                                         <li class="text-gray-700 dark:text-gray-200"
-                                            style="margin-bottom: 5px; font-size: 15px;">Order
-                                            Total: {{ order.price }}
+                                            style="margin-bottom: 5px; font-size: 15px;"><b>Order
+                                            Total:</b> {{ order.price }}
                                         </li>
                                     </ul>
                                 </td>
