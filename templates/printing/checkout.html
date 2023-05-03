@@ -227,6 +227,34 @@
 
 
 <script>
+
+    const countrySelect = document.querySelector('#country');
+    const stateSelect = document.querySelector('#state');
+
+    countrySelect.addEventListener('change', async (event) => {
+        console.log(event.target.value)
+        const country = event.target.value;
+        const url = `https://countriesnow.space/api/v0.1/countries/states`;
+        await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ country: country }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            stateSelect.innerHTML = '<option value="">Choose...</option>';
+            console.log(data.data.states);
+            data.data.states.forEach((state) => {
+                const option = document.createElement('option');
+                option.setAttribute('value', state.name);
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+            });
+        });
+    });
+
     function showPreview(event) {
         if (event.target.files.length > 0) {
             var src = URL.createObjectURL(event.target.files[0]);
