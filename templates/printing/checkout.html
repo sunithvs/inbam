@@ -173,7 +173,6 @@
                                     name="state"
                             >
                                 <option value="">Choose...</option>
-                                <option>California</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please provide a valid state.
@@ -243,6 +242,7 @@
         })
         .then((res) => res.json())
         .then((data) => {
+            stateSelect.innerHTML = '';
             stateSelect.innerHTML = '<option value="">Choose...</option>';
             data.data.states.forEach((state) => {
                 const option = document.createElement('option');
