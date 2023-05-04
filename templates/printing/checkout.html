@@ -27,9 +27,18 @@
             <div class="col-md-4 order-md-2 mb-4    ">
                 <ul class="list-group mb-3">
                     <!-- 3d preview  -->
-                    <div style="height: 500px;background-color: rgb(163, 173, 184);" 
-                        class="stlviewer list-group-item d-flex justify-content-between lh-condensed" 
+
+                    <div style="height: 500px;background-color: rgb(163, 173, 184);"
+                        class="stlviewer list-group-item d-flex justify-content-between lh-condensed"
                         data-src="{{ object.file.url }}">
+<!--                        show loading-->
+                            {% if not object.file.url %}
+                                <div class="loading">
+                                    <div class="spinner-border text-light" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            {% endif %}
                     </div>
                     <!-- end 3d preview  -->
                     <li
