@@ -23,17 +23,37 @@
 
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
     {% block styles %}
     {% endblock %}
+    <style>
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+
+            .sidebar_custom {
+                height: 100vh;
+            }
+
+        }
+
+        .footer_link {
+            text-decoration-line: underline;
+        }
+
+        :hover.footer_link {
+            color: #00ffda;
+        }
+    </style>
 </head>
 
 <body>
-<div class="flex h-screen bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+
+<div class="flex bg-gray-900 sidebar_custom" :class="{ 'overflow-hidden': isSideMenuOpen }">
     <!-- Desktop sidebar -->
     <aside style="background-color: black;" class="z-20 hidden w-64 overflow-y-auto md:block flex-shrink-0">
-        <div class="py-4">
+        <div class="pb-4">
             <a style="color: #00ffda;" class="ml-6 text-lg font-bold" href="/">
-                inbam
+                <img src="/static/img/logo1.png" alt="logo" height="80rem" width="80rem" class="ml-4 my-4">
             </a>
 
             <ul class="mt-6">
@@ -300,6 +320,28 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+
+<footer class="container-fluid bg-black" style="color: #fff; text-align: center; line-height: 2; display: block;">
+    <div>
+        &copy;
+        <script>
+            document.write(new Date().getFullYear());
+        </script>
+        <a href="#" class="footer_link">inbam</a>
+        All Rights
+        Reserved
+    </div>
+    <div style="color: #00ffda;">
+        <a href="#" target="blank" class="instagram"><i
+                class="fab fa-instagram  white-text mr-md-5 mr-3 "></i></a>
+        <a href="#" target="blank" class="facebook"><i
+                class="fab fa-facebook-f  white-text mr-md-5 mr-3 "></i></a>
+        <a href="#" target="blank" class="linkedin"><i
+                class="fab fa-linkedin  white-text mr-md-5 mr-3 "></i></a>
+        <a href="#" target="blank" class="twitter"><i
+                class="fab fa-twitter white-text mr-md-5 mr-3 "></i></a>
+    </div>
+</footer>
 
 </body>
 

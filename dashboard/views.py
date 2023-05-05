@@ -25,6 +25,8 @@ def profile(request):
         user.email = request.POST['email']
         user.save()
         return HttpResponseRedirect('/dashboard/profile')
+    else:
+        return render(request, 'dashboard/edit.html')
 
 
 @login_required(login_url='/login/')
